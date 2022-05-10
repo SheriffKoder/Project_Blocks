@@ -1,0 +1,78 @@
+
+          /*display the container in grid
+          div (holding image div/text div)
+          give padding, and border 
+
+          give image >> display block, "radius", "shadow"
+          and "transition":0.15s)
+          give image div on hover, shadow(this shadow replaces), transform
+
+
+        text-transform: uppercase;
+        box-shadow: 0 0 1.5rem rgb(17,17,17) ;
+        transition: 0.15s;
+        transform: rotate(-2deg) translateY(-5px) scale(1.035);
+
+          //rem, translate y
+          */
+          body {
+              background-color: grey;
+        }
+
+
+      /* modifying the container and subcontainer */
+      
+      .container {
+          width: 100%;
+          max-width: 350px;
+          margin: auto;
+          background-color: grey;
+        }
+
+        .card_outer {
+          display: grid;
+          grid-template-columns: auto auto;
+          /*gets the images horizontal each other rather than vertical to each other*/
+          grid-gap: 10px;
+        }
+
+
+      /* modifying the image/text container */
+        .card {
+          position: relative;
+          padding: 0.5rem;
+          border-radius: 8px;
+          background: whitesmoke; 
+      }
+
+      /* modifying the image */
+
+        .card img {
+          width: 100%;
+          display: block;
+          border-radius: 4px;
+          box-shadow: 0 0 1.5rem rgb(17,17,17) ;
+          transition: 0.15s;
+
+        }
+
+        .top > a:hover img {
+            box-shadow: 0 0 50px rgba(17,17,17, 0.5);
+            transform: rotate(-2deg) translateY(-5px) scale(1.035);
+        }
+
+      /* modifying the text */
+
+        .bottom.content {
+            padding: 1rem;
+        }
+
+        .content p {
+          font-size: 12px;
+        }
+
+        small {
+            font-size: 10px;
+            color: #264ee4;
+            text-transform: uppercase;
+        }
