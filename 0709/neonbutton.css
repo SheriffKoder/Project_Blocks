@@ -7,7 +7,6 @@
 
 
 /*
-hsl color ?
 0 0 0.125em hsl(0 0% 100% / 0.5)
 
 place-items
@@ -22,6 +21,8 @@ rem, em
 currentColor
 
 content: '';
+
+transition: opacity 100ms linear;
 
 
 */
@@ -51,7 +52,7 @@ body {
     text-decoration: none;
     color: var(--clr-neon);
 
-    border: currentColor 0.125em solid;
+    border: var(--clr-neon) 0.125em solid;
     padding: 0.25em 1.5em;
     border-radius: 0.25em;
 
@@ -65,29 +66,77 @@ body {
     ;
 
     position: relative; /*not relative to the page, button is now containing block*/
+
+    transition: background-color 100ms linear; /*end steps*/
+
 }
 
 
 /* adding the reflection */
 
-.neon-button::before {
-    content: '';
-    position: absolute;
-    /**/
+.neon-button::before { /*pseudo element video*/
+    content: ''; /*must have in pseudo*/
+    position: absolute; /*neon button containing block for pseudo element*/
+
     background: var(--clr-neon);
 
-    
+    /* location */
     top: 120%;
     left:0;
     width: 100%;
     height: 100%;
-
     /*transform and translate also works in moving the reflection space */
 
-    transform: perspective(1em); /*how far away we are from the thing */
+    /* the rotation */
+    transform: 
+    perspective(1em) /* POV  from above, lowest is 1 how far away we are from the thing, the rotation POV */
+    rotateX(40deg) 
+    /*rotateZ(20deg)*/
+    scale(1,0.35); /*squish it a little bit*/
     
-    /* Min 9:41 */
+    /* the effect */
+    filter: blur(1.2em);
+    opacity: 0.7;   /*less intense*/
+
+    pointer-events: none; /*hover on button works, hover shadow after it not work*/
+}
 
 
+.neon-button:hover, .neon-button:focus {
 
+    color: var(--clr-bg);
+    text-shadow: none;
+
+}
+
+
+/*second effect*/
+.neon-button::after {
+    content: '';
+    position: absolute;
+
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    box-shadow:  0 0 5em 0.5em var(--clr-neon);
+    opacity:0;
+
+    background-color: var(--clr-neon); /*was on the button hover but we put it here to sum effects and with z-index to not make it overlap the button itself*/
+    z-index: -1;
+    transition: opacity 100ms linear; /*end steps*/
+
+    
+}
+
+
+.neon-button:hover::after,
+.neon-button:focus::after { /*when we hover on neon button the after will ..*/
+    opacity: 1;
+}
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+    opacity: 1;       /*from 0.7 to this value*/
 }
