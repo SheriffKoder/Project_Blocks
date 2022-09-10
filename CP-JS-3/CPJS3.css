@@ -5,6 +5,8 @@ body {
 
 }
 
+/*///////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////*/
 .Main_Div {
 
     min-height: 400px;
@@ -25,7 +27,7 @@ body {
 
 }
 
-
+/*///////////////////////////////////////////////////////*/
 #Header_Div {
     height: 100px;
     width: 100%;
@@ -40,6 +42,9 @@ body {
 
 }
 
+
+
+/*///////////////////////////////////////////////////////*/
 #Header_Div p {
     margin-top: 1em;
     font-size: 0.75rem;
@@ -73,13 +78,34 @@ body {
 }
     
 
+
+/*///////////////////////////////////////////////////////*/
 #Content_Div {
     height: 200px;
     width: 100%;
     border: 1px solid white;
 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
 }
 
+#Content_Div img {
+    height: 50%;
+    border-radius: 10px;
+
+}
+
+#Content_Div img:hover {
+    box-shadow: 0 0 12px var(--clr-background-box);
+    transform: rotateZ(-4deg) scale(1.1);
+}
+
+
+
+/*///////////////////////////////////////////////////////*/
 #Message_Div {
     height: 100px;
     width: 100%;
