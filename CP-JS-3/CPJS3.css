@@ -1,0 +1,88 @@
+
+
+body {
+    background-color: var(--clr-darkergrey);
+
+}
+
+.Main_Div {
+
+    min-height: 400px;
+    width: 700px;
+
+    border: 3px solid var(--clr-darkgrey);
+    /*background-color: var(--clr-background-box);*/
+    border-radius: 10px;
+
+    margin: auto;
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 12px 2px var(--clr-background-box),
+    1px 1px 12px 5px var(--clr-text-shadow);
+
+
+}
+
+
+#Header_Div {
+    height: 100px;
+    width: 100%;
+    border: 1px solid white;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+#Header_Div p {
+    margin-top: 1em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: var(--clr-header-color);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.Normal_Button {
+    background-color: hsl(0, 0%, 82%) ;
+    color: var(--clr-darkergrey);
+    border-color: var(--clr-header-color);
+    border-radius: 10px;
+
+    height: 2em;
+    width: 10em;
+
+    font-family: monospace;
+    font-size: 0.75rem;
+
+
+}
+
+.Normal_Button:hover {
+    text-shadow: 0px 0px 4px var(--clr-text-shadow-border);
+    color: var(--clr-background-box);
+
+}
+    
+
+#Content_Div {
+    height: 200px;
+    width: 100%;
+    border: 1px solid white;
+
+}
+
+#Message_Div {
+    height: 100px;
+    width: 100%;
+    border: 1px solid white;
+
+}
