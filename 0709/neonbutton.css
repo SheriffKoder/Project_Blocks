@@ -1,9 +1,12 @@
 
+
 :root {
     --clr-neon: hsl(317 100% 54%);
     --clr-bg: hsl(323 21% 16%);
 
 }
+
+/* hsl (hue(255), saturation%, brightness% / opacity)*/
 
 
 /*
@@ -48,7 +51,7 @@ body {
     font-size: 2.5rem;
 
     display:  inline-block;
-    cursor: pointer;
+    cursor: pointer; /* mouse pointer shape */
     text-decoration: none;
     color: var(--clr-neon);
 
@@ -60,6 +63,8 @@ body {
     0 0 0.125em hsl(0 0% 100% / 0.3), /*white one followed by the other one*/
     0 0 0.25em currentColor ; /*blur, change on font size itself*/
 
+    /*white lesser-blur shadow gives it more brightness*/
+
     box-shadow:  
     inset 0 0 0.5em 0 var(--clr-neon),
     0 0 0.5em 0 var(--clr-neon)
@@ -67,7 +72,7 @@ body {
 
     position: relative; /*not relative to the page, button is now containing block*/
 
-    transition: background-color 100ms linear; /*end steps*/
+    transition: background-color 100ms linear; /*end steps, slowing the background change in both directions*/
 
 }
 
@@ -75,9 +80,9 @@ body {
 /* adding the reflection */
 
 .neon-button::before { /*pseudo element video*/
+    
     content: ''; /*must have in pseudo*/
     position: absolute; /*neon button containing block for pseudo element*/
-
     background: var(--clr-neon);
 
     /* location */
@@ -102,18 +107,14 @@ body {
 }
 
 
-.neon-button:hover, .neon-button:focus {
-
-    color: var(--clr-bg);
-    text-shadow: none;
-
-}
-
 
 /*second effect*/
 .neon-button::after {
+    
     content: '';
     position: absolute;
+
+    background-color: var(--clr-neon); /*was on the button hover but we put it here to sum effects and with z-index to not make it overlap the button itself*/
 
     top:0;
     bottom: 0;
@@ -123,11 +124,23 @@ body {
     box-shadow:  0 0 5em 0.5em var(--clr-neon);
     opacity:0;
 
-    background-color: var(--clr-neon); /*was on the button hover but we put it here to sum effects and with z-index to not make it overlap the button itself*/
     z-index: -1;
     transition: opacity 100ms linear; /*end steps*/
 
     
+}
+
+.neon-button:hover, .neon-button:focus {
+
+    color: var(--clr-bg);
+    text-shadow: none;
+
+}
+
+
+.neon-button:hover::before,
+.neon-button:focus::before {
+    opacity: 1;       /*from 0.7 to this value*/
 }
 
 
@@ -136,7 +149,56 @@ body {
     opacity: 1;
 }
 
-.neon-button:hover::before,
-.neon-button:focus::before {
-    opacity: 1;       /*from 0.7 to this value*/
-}
+/*
+
+1)link and border same colors with shadow
+2)::before, is the reflection, position and blur
+3)::after, is on the button, opacity 1 on hover
+
+same thing for after, this thing will use text background/text to other color
+but position on all axis 0
+give it a shadow (will use for hover)
+send it to back of text,
+and give opacity 0
+
+before and after increase opacity on hover
+
+
+
+in the link, give the text, border, bordershadow in/out same color
+white text-shadow
+
+---------------------
+> relate ::before by position the link
+he made the link (relative to body) and before (absolute to nearest ansc 
+
+>rotate ::before-shape by transform
+persmective, looking from above angle
+rotatedX
+scaled to desired shape
+
+>blur convereted the shape to its shadow
+---------------------
+
+
+
+new takeouts:
+    cursor: pointer; mouse pointer shape
+    z-index: -1;
+
+    ::before/::After can make shapes
+
+    body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    
+        transition: background-color 100ms linear;
+
+apply;
+z-index
+cursor
+:before and after to make a background ?
+grid, place-items
+
+*/
