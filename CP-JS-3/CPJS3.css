@@ -111,6 +111,19 @@ body {
         height: 100px;
         width: 100%;
         border: 1px solid var(--clr-test-border);
-        ;
 
+        display: flex;
+        justify-content: center;
     }
+
+        .Message_Div_P {
+            font-size: 40px;
+            font-weight: 700;
+
+        }
+
+        #Message_Div p {
+            margin: auto;
+            letter-spacing: 0.1em;
+            
+        }

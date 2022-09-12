@@ -10,10 +10,26 @@ let object_status = {
 
 }
 
+let object_status_backup = {
+
+    'reset': 1 ,
+    'start': 0 ,
+    'played': 0,
+    'player_selection': 'none',
+    'bot_selection': 'none',
+
+}
+
+
+console.log(object_status_backup);
+
+
 //console.log(object_status['reset']);
 
 
 function start () {
+
+    console.log('hi');
 
     if (object_status['reset']==1 && object_status['start'] == 0) {
 
@@ -48,7 +64,6 @@ function start () {
 }
 
     
-    start();
     
 
 /*///////////////////////////////////////////////////////*/
@@ -101,7 +116,8 @@ function Compute_Bot_Selection () {
     //console.log(object_status['bot_selection']);
 
     let Decision_Result = Decide_Winner (object_status['player_selection'], object_status['bot_selection']);
-    Decide_Message(Decision_Result);
+    let Message_Properties = Decide_Message (Decision_Result);
+    Output_Message(Message_Properties);
 }
 
 
@@ -127,7 +143,7 @@ function  Decide_Winner (player, bot) {
 
 }
 
-
+/* Output Message ////////////////////////////////////////*/
 function Decide_Message (input) {
 
     let output_message = {
@@ -139,6 +155,36 @@ function Decide_Message (input) {
     }
 
 
-    console.log(output_message[input]);
+    //console.log(output_message[input]);
+    return output_message[input];
 }
 
+function Output_Message (object) {
+
+    let target = document.getElementById('Message_Div');
+
+    console.log(object);
+
+    target.innerHTML = '<p style="color:' +object['color']+ '">' +object['message']+ '</p>';
+    target.setAttribute('class', 'Message_Div_P');
+
+
+
+}
+
+/*///////////////////////////////////////////////////////*/
+/* Reset Functionality //////////////////////////////////*/
+
+function Reset_Functionality () {
+
+    console.log("reset");
+
+    document.getElementById('rock').remove();
+    document.getElementById('paper').remove();
+    document.getElementById('sci').remove();
+    document.getElementById('Message_Div').innerHTML = '';
+
+    object_status = object_status_backup;
+    console.log(object_status);
+
+}
