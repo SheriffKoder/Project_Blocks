@@ -55,7 +55,7 @@ function start () {
 /* player part //////////////////////////////////////////*/
 function Record_Player_Selection () {
 
-
+    /*add event listener does not respect the if condition */
     rock.addEventListener('click', Know_ID);
     paper.addEventListener('click', Know_ID);
     sci.addEventListener('click', Know_ID);
@@ -100,8 +100,8 @@ function Compute_Bot_Selection () {
     object_status['bot_selection'] = random_card;
     //console.log(object_status['bot_selection']);
 
-    Decide_Winner (object_status['player_selection'], object_status['bot_selection']);
-
+    let Decision_Result = Decide_Winner (object_status['player_selection'], object_status['bot_selection']);
+    Decide_Message(Decision_Result);
 }
 
 
@@ -114,6 +114,31 @@ function  Decide_Winner (player, bot) {
     console.log(bot);
 
     object_status['played'] = 1;
-    console.log(object_status['played']);
+    //console.log(object_status['played']);
+
+    let result_object = {
+        'rock': {'rock': 0.5, 'paper': 0, 'sci': 1},
+        'paper': {'rock': 1, 'paper': 0.5, 'sci': 0},
+        'sci': {'rock': 1, 'paper': 0, 'sci': 0.5},
+
+    }
+
+    return (result_object[player][bot]);
 
 }
+
+
+function Decide_Message (input) {
+
+    let output_message = {
+        '1': {'message': 'won', 'color': 'green'},
+        '0': {'message': 'lost', 'color': 'red'},
+        '0.5': {'message': 'tied', 'color': 'yellow'},
+
+
+    }
+
+
+    console.log(output_message[input]);
+}
+
