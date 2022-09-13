@@ -1,0 +1,60 @@
+
+body {
+    display: grid;
+    place-items: center;
+
+}
+
+.Thirteen_091::before {
+
+    content: 'Hello'; /* can be url(''), open-quote */
+    background: red;
+
+    font-size: 20px;
+    color: white;
+    font-weight: 900;
+
+    display: block;
+
+
+}
+
+.Thirteen_091::after {
+    content: open-quote;
+    font-size: 2em;
+    color: red;
+
+}
+
+a[data-tool-tip] {
+
+    position: relative; /* want to place as wanted*/
+
+}
+
+
+a[data-tool-tip]::after {
+
+    content: attr(data-tool-tip);
+    display: block; /*separate from element's line*/
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: gray ;
+    padding: 1em 3em;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75em;
+    white-space: nowrap;    /*avoid text wrapping*/
+    transform: scale(0); /*scale 0 , so it does not exist anymore*/
+    transition: 
+    transform 150ms ease-out, 
+    bottom 150ms ease-out ;
+
+}
+
+a[data-tool-tip]:hover::after {
+    transform: scale(1); /*scale 0 , so it does not exist anymore*/
+    bottom: 80%;
+}
