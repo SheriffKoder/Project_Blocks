@@ -1,0 +1,74 @@
+/*///////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////*/
+
+
+body {
+    background-color: var(--clr-darkergrey);
+
+}
+
+/*///////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////*/
+.Main_Div {
+
+    min-height: 200px;
+    width: 500px;
+
+    border: 3px solid var(--clr-darkgrey);
+    /*background-color: var(--clr-background-box);*/
+    border-radius: 10px;
+
+    margin: auto;
+    margin-top: 50px;
+
+    box-shadow: 1px 1px 12px 2px var(--clr-background-box),
+    1px 1px 12px 5px var(--clr-text-shadow);
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    
+
+}
+
+#Select_Menu {
+
+    height: 20px;
+    width: 80px;
+
+}
+
+
+.Button {
+    height: 30px;
+    width: 100px;
+
+    border-radius: 5px;
+    border: 2px solid;
+    background-color: rgba(0, 0, 0, 0);
+
+}
+
+
+.BlueButton {
+    border-color: blue;
+    color: blue;
+
+
+    
+}
+
+.RedButton {
+    border-color: red;
+    color: red;
+
+  
+}
+
+.GreenButton {
+    border-color: yellow;
+    color: yellow;
+
+    
+}
