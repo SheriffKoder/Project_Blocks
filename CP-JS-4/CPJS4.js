@@ -29,6 +29,7 @@ function Take_Input (x) {
     }
     else if (input == 'random') {
         console.log('random 2');
+        Random_Color();
 
     }
 
@@ -61,23 +62,42 @@ function reset_buttons () {
 
     for (i=0; i< all_buttons.length ; i++){
 
-        let currentButton = all_buttons[i].classList[1];
-        //console.log(currentButton);
-        all_buttons[i].classList.remove(currentButton);
+        Remove_Style (i);
 
         //console.log(all_buttons_backup[i]);
         let original_button = all_buttons_backup[i];
         all_buttons[i].classList.add(original_button);
 
-
-
-
-
     }
-
-
-
-
     console.log (" reset [end]");
 
+}
+
+
+function Random_Color () {
+
+
+    console.log (" random [start]");
+
+    for (i=0; i< all_buttons.length ; i++){
+
+        let x = Math.floor (Math.random() * all_buttons_backup.length);
+        console.log (x);    
+
+        Remove_Style(i);
+
+        //console.log(all_buttons_backup[x]);
+        let new_button = all_buttons_backup[x];
+        all_buttons[i].classList.add(new_button);
+
+    }
+    console.log (" random [end]");
+
+}
+
+
+function Remove_Style (x) {
+    let currentButton = all_buttons[x].classList[1];
+    //console.log(currentButton);
+    all_buttons[x].classList.remove(currentButton);
 }
