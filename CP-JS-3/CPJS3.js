@@ -13,6 +13,7 @@ let object_status = {
 
 }
 
+/*
 let object_status_backup = {
 
     'reset': 1 ,
@@ -22,7 +23,7 @@ let object_status_backup = {
     'bot_selection': 'none',
 
 }
-
+*/
 
 console.log(object_status_backup);
 
@@ -210,12 +211,17 @@ function Reset_Functionality () {
     console.log('Reset Start');
 
 
-    object_status['reset'] = 1;
-    object_status['start'] = 0;
-    object_status['played'] = 0;
-    object_status['player_selection'] = 'none';
-    object_status['bot_selection'] = 'none';
-    console.log(object_status);
+    object_status = {
+
+        'reset': 1 ,
+        'start': 0 ,
+        'played': 0,
+        'player_selection': 'none',
+        'bot_selection': 'none',
+    
+    }
+
+    //console.log(object_status_backup);
 
     console.log("reset");
 
@@ -225,6 +231,8 @@ function Reset_Functionality () {
     document.getElementById('Message_Div').innerHTML = '';
 
     console.log('Reset End');
+
+    //console.log(object_status_backup);
 
 
 }
