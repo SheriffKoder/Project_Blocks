@@ -32,7 +32,7 @@ body {
     #Header_Div {
         height: 100px;
         width: 100%;
-        border: 1px solid var(--clr-test-border);
+/*      border: 1px solid var(--clr-test-border);*/
 
         display: flex;
         flex-direction: row;
@@ -82,8 +82,8 @@ body {
     #Content_Div {
         height: 200px;
         width: 100%;
-        border: 1px solid var(--clr-test-border);
-        ;
+/*      border: 1px solid var(--clr-test-border);*/
+
 
         display: flex;
         flex-direction: row;
@@ -110,7 +110,7 @@ body {
     #Message_Div {
         height: 100px;
         width: 100%;
-        border: 1px solid var(--clr-test-border);
+/*      border: 1px solid var(--clr-test-border);*/
 
         display: flex;
         justify-content: center;
@@ -123,7 +123,7 @@ body {
         }
 
         #Message_Div p {
-            margin: auto;
+            margin: 0px;
             letter-spacing: 0.1em;
             
         }

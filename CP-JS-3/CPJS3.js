@@ -189,11 +189,15 @@ function Output_Message (object) {
     console.log('Output Message Start');
 
     let target = document.getElementById('Message_Div');
-
+    let target2 = document.getElementById('Main_Div_ID');
     console.log(object);
 
     target.innerHTML = '<p style="color:' +object['color']+ '">' +object['message']+ '</p>';
     target.setAttribute('class', 'Message_Div_P');
+
+    /* Main Box Change per result Box Shadow */
+    let border_color = object['color'];
+    target2.style.boxShadow = `1px 1px 12px 3px ${border_color}`;
 
     console.log("original");
     console.log(object_status);
@@ -220,6 +224,12 @@ function Reset_Functionality () {
         'bot_selection': 'none',
     
     }
+
+    /* Main Box Reset Box Shadow */
+    let target2 = document.getElementById('Main_Div_ID');
+    let border_color =  'hsl(143, 85%, 34%)';
+    let border_color2 = 'hsl(0, 0%, 95%)';
+    target2.style.boxShadow = `1px 1px 12px 3px ${border_color}, 1px 1px 12px 3px ${border_color2}`;
 
     //console.log(object_status_backup);
 
