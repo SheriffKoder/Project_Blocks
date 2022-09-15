@@ -7,7 +7,7 @@ body {
 
 .Thirteen_091::before {
 
-    content: 'Hello'; /* can be url(''), open-quote */
+    content: 'Before'; /* can be url(''), open-quote */
     background: red;
 
     font-size: 20px;
@@ -57,4 +57,34 @@ a[data-tool-tip]::after {
 a[data-tool-tip]:hover::after {
     transform: scale(1); /*scale 0 , so it does not exist anymore*/
     bottom: 80%;
+}
+
+/*stopped at 10:23*/
+
+/*for any link with http on it, give pdf icon using font awesome*/
+a[href^="http"]::after {
+    font-family: 'Font Awesome 5 Free';
+    content: '\f35d';
+    font-weight: 900;
+}
+
+a[href^="http"] {
+    position: relative;
+}
+
+/* make custom marker to each element (link, div etc..)*/
+a[href^="http"]::before {
+    counter-increment: counter-peferedname; /*on parent use counter-reset: counter-peferedname*/
+    content: counter(counter-peferedname);
+    position: absolute;
+    left: -2em;
+    color: white;
+    background-color: gray;
+    border-radius: 70%;
+    width: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
