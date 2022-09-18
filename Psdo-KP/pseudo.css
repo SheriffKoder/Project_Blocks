@@ -5,6 +5,11 @@ body {
 
 }
 
+
+.Thirteen_091 {
+    /*position: relative; /* relative/absolute rule gives on top style when combined with top/left 00 */
+}
+
 .Thirteen_091::before {
 
     content: 'Before'; /* can be url(''), open-quote */
@@ -26,6 +31,7 @@ body {
 
 }
 
+/*/////////////////////////////////////////////////////////////////////////////*/
 a[data-tool-tip] {
 
     position: relative; /* want to place as wanted*/
@@ -47,7 +53,10 @@ a[data-tool-tip]::after {
     border-radius: 4px;
     font-size: 0.75em;
     white-space: nowrap;    /*avoid text wrapping*/
-    transform: scale(0); /*scale 0 , so it does not exist anymore*/
+
+    transform: scale(0);    /*scale 0 , so it does not exist anymore*/
+                            /*like opacity trait*/
+
     transition: 
     transform 150ms ease-out, 
     bottom 150ms ease-out ;
@@ -56,25 +65,25 @@ a[data-tool-tip]::after {
 
 a[data-tool-tip]:hover::after {
     transform: scale(1); /*scale 0 , so it does not exist anymore*/
-    bottom: 80%;
+    bottom: 100%;
 }
 
-/*stopped at 10:23*/
-
+/*/////////////////////////////////////////////////////////////////////////////*/
 /*for any link with http on it, give pdf icon using font awesome*/
+
+a[href^="http"] {
+    position: relative;
+}
+
 a[href^="http"]::after {
     font-family: 'Font Awesome 5 Free';
     content: '\f35d';
     font-weight: 900;
 }
 
-a[href^="http"] {
-    position: relative;
-}
-
 /* make custom marker to each element (link, div etc..)*/
 a[href^="http"]::before {
-    counter-increment: counter-peferedname; /*on parent use counter-reset: counter-peferedname*/
+    counter-increment: counter-peferedname; /*on parent use counter-reset: counter-peferedname to start counting new list, if in the parent of parent uls counting will be combined */
     content: counter(counter-peferedname);
     position: absolute;
     left: -2em;
@@ -87,4 +96,175 @@ a[href^="http"]::before {
     justify-content: center;
     align-items: center;
 
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////*/
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.intro {
+    position: relative;
+    display: inline;
+    color:red;
+
+/*    &::before, &::after { sass gives children style in parent
+
+    }
+
+*/    
+}
+
+
+.intro::before, .intro::after {
+    content: ' ';
+    height: 100%;
+    display: block;
+    position: absolute; /* to control exactly where be*/
+
+}
+
+.intro::before {
+    background: lavender;
+    z-index: -1;
+
+    left: -20px;
+    right: -20px;       /* can use LR to give element needed space without width */
+
+
+}
+
+.intro::after {
+
+    width: 100vw;
+
+    left: 50%;
+    transform: translateX(-50%); /* 2 step tick to center */
+
+    top: 0;
+
+    background: red;
+
+    z-index: -2;
+}
+
+
+/*/////////////////////////////////////////////////////////////////////////////*/
+/* 
+    transition: opacity ease-out 250ms; opacity from 0-1
+    transform: translate (-50%, -50%);
+    transform: scale(0); //transition transform
+
+    opacity out transition to read the text
+
+    .card:hover .card_img {
+    //give img style on card hover
+
+    border in ::before/after
+
+
+
+
+*/
+
+/*
+
+*/
+
+.card {
+    position: relative;
+    margin: 1em;
+    background: gray;
+}
+
+        .card::before {
+            content: ' ';
+            position: absolute;
+/*            background: pink; */
+            top: 1.25em;
+            bottom: 1.25em;
+            left: 1.25em;
+            right: 1.25em;
+            transition:  transform ease-out 250ms;
+
+            border-top: 1px solid white;
+            border-bottom: 1px solid white;
+
+
+        }
+
+        .card::before {
+            transform: scale(0, 1); /*x is 0, y is at 100%*/
+        }
+
+        .card:hover::before {
+            transform: scale(1, 1);
+        }
+
+
+        .card::after {
+            content: ' ';
+            position: absolute;
+/*            background: pink; */
+            top: 1.25em;
+            bottom: 1.25em;
+            left: 1.25em;
+            right: 1.25em;
+            transition:  transform ease-out 250ms;
+
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+
+
+        }
+
+        .card::after {
+            transform: scale(1, 0); /*x is 0, y is at 100%*/
+        }
+
+        .card:hover::after {
+            transform: scale(1, 1);
+        }
+
+
+
+
+.card_img {
+    max-width: 100%;
+    display: block;
+    transition: opacity ease-out 250ms;
+    opacity: 1;
+}
+
+.card:hover .card_img {
+    opacity: 0.4;
+}
+
+.card_text {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate (-50%, -50%);
+    color:white;
+    opacity: 0.1;
+    transition: opacity ease-out 250ms;
+
+}
+
+.card:hover .card_text {
+    opacity: 1;
+}
+
+.card_title {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0;
+}
+
+.source {
+    opacity: 0.8;
+    position: absolute;
+    width: 100%;
 }
