@@ -1,5 +1,7 @@
 
-
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/* Snackbar toggle box */
 #snackbar {
 
     min-width: 250px;
@@ -24,6 +26,7 @@
 
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation-fill-mode: forwards;
 
 }
 
@@ -48,3 +51,24 @@
     to {bottom: 30px; opacity: 1;}
 }
   
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+
+
+.testdiv_date.main { 
+    height: 500px; width: 200px; 
+    background-color: lightblue; 
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: center; 
+    overflow: scroll; /* needed for scroll */
+
+} 
+
+.testdiv_date.sub { 
+    height: 300px; 
+    width: 200px; 
+    background-color: red; 
+}
