@@ -54,7 +54,7 @@
 
 /*////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////*/
-
+/* scroll with JS */
 
 .testdiv_date.main { 
     height: 500px; width: 200px; 
@@ -70,5 +70,46 @@
 .testdiv_date.sub { 
     height: 300px; 
     width: 200px; 
-    background-color: red; 
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/* layers */
+/* 
+intentionally cascading systems
+in design systems ,themes, defaults, 
+less important than unlayeres styles
+
+can name or group layers
+
+*/
+
+@layer framework1, framework2;
+/* framework2 wins even if not last written because last written in layer priority */
+/* important layers reverse the order */
+
+@layer framework2 {
+
+
+
+@layer framework1 {
+
+    .testdiv_date.sub {
+        background: green;
+    }
+
+}
+
+.testdiv_date.sub {
+    background: blue;
+}
+
+}
+
+
+
+.testdiv_date.sub { 
+    background: gray;
+
 }
