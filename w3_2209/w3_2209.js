@@ -1,4 +1,9 @@
 
+
+/*////////////////////////////////////////////////////////////////////*/
+/* Snackbar */
+
+
 /*function reset_class(input) {
     input.className = input.className.toggle("show");
     /*something wrong with the definition not remove classname properly
@@ -22,6 +27,8 @@ function myFunction () {
 }
 
 /*////////////////////////////////////////////////////////////////////*/
+/* scroll with JS */
+
 
 let test22 = document.getElementById('Div_test');
 
@@ -54,5 +61,7 @@ function scroll_up () {
     console.log("hey");
 
 }
+
+/* scrollTop either take value or give value */
 
 /*////////////////////////////////////////////////////////////////////*/
