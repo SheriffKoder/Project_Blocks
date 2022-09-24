@@ -79,7 +79,7 @@
 
 body {
 
-    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+/*  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
     /*angle, starting color, middle color, ending color (starts at 75%) */
 
     /*
@@ -149,33 +149,100 @@ less important than unlayered styles
 
 can name or group layers
 
+help with specificity issues
+
+* { 
+ has no priority but overlaps all user styles
+}
+
+
 */
 
-@layer framework1, framework2;
-/* framework2 wins even if not last written because last written in layer priority */
-/* important layers reverse the order to important layer(least powerful), important layer, important unlayer */
+/*declaration for priority setting, must be before the layers */
+@layer layer2, layer1;
+/* layer1 wins even if not last written because last written in layer priority 
+even though in the layers it should be least because it has not been written last */
+/* anywhere !important is put layers reverse the order to important layer(least powerful), important layer(more important), important unlayer */
 
-@layer framework2 {
+
+/*// order low-high specifity //*/
 
 
-
-@layer framework1 {
+@layer layer1 {
 
     .testdiv_date.sub {
-        background: green;
+        background: green !important;
     }
 
 }
 
-.testdiv_date.sub {
-    background: blue;
-}
+@layer layer2 {
+
+    .testdiv_date.sub {
+        background: blue ;
+    }
+    
+    
 
 }
 
 
-
+/* unlayered style
 .testdiv_date.sub { 
     background: gray;
+
+}
+*/ 
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+
+
+
+.main2 {
+    background: url('https://images.unsplash.com/photo-1546587348-d12660c30c50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80') 50%;
+
+}
+
+
+.BG_div {
+    width: 100%;
+    height: 300px;
+    background: rgb(124, 124, 124);
+
+    display: flex;
+
+    mix-blend-mode: multiply;
+
+}   
+
+.mix_div {
+    color: rgb(255, 255, 255);
+    float: right;
+    background: rgba(0, 0, 0, 0.475);
+
+    margin: auto;
+
+    height: 2em;
+    width: 4em;
+
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+
+/*  mix-blend-mode: multiply; /* in a child, it takes the whites, keeps the blacks*/
+/*  mix-blend-mode: screen; /*takes the black, keeps the lighter pixels*/
+/*    mix-blend-mode: overlay; /* plays with contrast brighter whites, darker blacks */
+/*    mix-blend-mode: difference; */
+    
+/* you can actually have a transparent to background even if inside a div 
+even when fixed !
+use mix on div and mix on text*/
 
 }
