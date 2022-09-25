@@ -98,6 +98,21 @@ html {
     overflow: scroll; /* always show scroll bar*/
 }
 
+.scroll_contain {
+
+/*    The CSS overflow property controls what happens to content 
+    that is too big to fit into a block element with specified height */
+    /*overflow: visible; /*no clip, content out of box */
+    /*overflow: hidden;  /* clip content */
+    /* overflow: scroll;  /* content contained inside box and scroll is added */
+    overflow: auto !important;  /* like scroll but bar only when needed */
+
+}
+
+
+
+
+
 ::placeholder {
     color: red; /* change the input background color */
     opacity: 1; /* firefox adds by default opacity to input section */
@@ -208,7 +223,6 @@ even though in the layers it should be least because it has not been written las
 /*////////////////////////////////////////////////////////////////////*/
 
 
-
 .main2 {
     background: url('https://images.unsplash.com/photo-1546587348-d12660c30c50?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8bmF0dXJhbHxlbnwwfHwwfHw%3D&w=1000&q=80') 50%;
 
@@ -218,15 +232,17 @@ even though in the layers it should be least because it has not been written las
 .BG_div {
     width: 100%;
     height: 300px;
-    background: rgb(124, 124, 124);
+    background: rgb(215, 185, 255);
 
     display: flex;
 
-    mix-blend-mode: multiply;
+    mix-blend-mode: multiply; /* affects child to be transparent to main background */
 
 /*    position: fixed; */
 
+
 }   
+
 
 .mix_div {
     color: rgb(255, 255, 255);
@@ -257,3 +273,35 @@ even when fixed !
 use mix on div and mix on text*/
 
 }
+
+
+
+/* mix-blend test 2: using ::after and blending with the base layer*/
+/*
+.main2 { 
+    position: relative;
+    z-index: 1;
+
+    /*isolation: isolate; /* same as relative/z1 */
+    /*called stacking context i.e psdo element cannot escape the element to behind 
+    if put in BD_div, the BG_div will become its own bubble and will have nothing to blend with */
+}
+/*
+.BG_div {
+    position: relative;
+    background: none;
+
+}
+
+.BG_div::after {
+    content: ' ';
+    position: absolute;
+    background: #ff0464;
+    inset: 0; /* all sides 0 */
+/*
+    z-index: -1; /* combined with main (because its the main color/image)
+     z-index1 lets after show and content in the same time, stacking */
+/*
+    mix-blend-mode: multiply;
+}
+*/
