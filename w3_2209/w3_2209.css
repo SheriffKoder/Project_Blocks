@@ -54,7 +54,7 @@
 
 /*////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////*/
-/* scroll with JS */
+/* scroll values with JS */
 
 .testdiv_date.main { 
     height: 500px; 
@@ -92,8 +92,17 @@ body {
 
 html {
     scroll-behavior: smooth; /* makes the scoll in page more smooth */
+
+    overflow: hidden; /* hide all scroll bars */
+    overflow-y: hidden; /* hide vertical scroll bar */
+    overflow: scroll; /* always show scroll bar*/
 }
 
+::placeholder {
+    color: red; /* change the input background color */
+    opacity: 1; /* firefox adds by default opacity to input section */
+    background-color: blue;
+  }
 
 
 /*////////////////////////////////////////////////////////////////////*/
@@ -214,6 +223,8 @@ even though in the layers it should be least because it has not been written las
     display: flex;
 
     mix-blend-mode: multiply;
+
+/*    position: fixed; */
 
 }   
 
