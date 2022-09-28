@@ -90,3 +90,42 @@ function chargebattery() {
 
 
 /*////////////////////////////////////////////////////////////////////*/  
+/* JS function to change */
+
+
+var blendModes = [
+  "normal",
+  "multiply",
+  "screen",
+  "overlay",
+  "darken",
+  "lighten",
+  "color-dodge",
+  "color-burn",
+  "hard-light",
+  "soft-light",
+  "difference",
+  "exclusion",
+  "hue",
+  "saturation",
+  "color",
+  "luminosity"
+];
+
+// Returns a Promise that resolves after "ms" Milliseconds
+const timer = (ms) => new Promise((res) => setTimeout(res, ms));
+
+const displayModes = async () => {
+  var i;
+  for (i = 0; i < blendModes.length; i++) {
+    let elem = document.getElementById("blend_h1");
+    elem.style.mixBlendMode = blendModes[i];
+    elem.innerText = ` ${blendModes[i]}`;
+    if (i >= blendModes.length - 1) {
+      i = 0;
+    }
+    await timer(2000); // then the created Promise can be awaited
+  }
+};
+
+displayModes();
