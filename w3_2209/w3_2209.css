@@ -182,30 +182,58 @@ help with specificity issues
 
 */
 
-/*declaration for priority setting, must be before the layers */
+/*declaration for priority setting, must be before the layers
+preferable to be put on top of css code even before @import */
 @layer layer2, layer1;
+@layer layer1, layer2;
+/*second declaration orders do not overlap the first, layer 1 still higher priority */
+
+@layer reset.type, default.type, reset.media, default.media;
+        /* ordering sub layers globaly because they follow the order priority unsub-layered, last is highest */
+
+@import url('example.css') layer (<layer-name>);
+/* import a specific layer from a css file */
+
 /* layer1 wins even if not last written because last written in layer priority 
 even though in the layers it should be least because it has not been written last */
 /* anywhere !important is put layers reverse the order to important layer(least powerful), important layer(more important), important unlayer */
 
+/* un layered wins
+/* important any layer reverses the order
+/* if last in layers declaration then if last in separate declarations
 
-/*// order low-high specifity //*/
+/* this priority scheme allows to add styles anywhere in the document without changing priority
+
+
+
+/* order low-high specifity */
 
 
 @layer layer1 {
 
+    @layer layer11, layer12;
+
     .testdiv_date.sub {
         background: green !important;
+        /*cant put charset, imports, and namespaces.*/
     }
 
+        @layer11 {
+
+        }
+
 }
+                    /* sub layers access */
+@layer layer1.layer11 {
+        /* access a sub layer from outside the parent layer */
+}
+
 
 @layer layer2 {
 
     .testdiv_date.sub {
         background: blue ;
     }
-    
     
 
 }
@@ -218,7 +246,11 @@ even though in the layers it should be least because it has not been written las
 }
 */ 
 
-
+/*
+Anonymous layers
+@ layer {} or import url('') layer;
+order is where its encountered, cannot be sorted or appended
+*/
 
 /*////////////////////////////////////////////////////////////////////*/
 
