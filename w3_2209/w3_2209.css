@@ -354,3 +354,44 @@ use mix on div and mix on text*/
 }
 
 
+
+/*////////////////////////////////////////////////////////////////////*/
+/*spotlight*/
+
+    .spot_container {
+        background: black;
+        color: #23424A;       
+    }
+
+
+    .animate {
+
+        background: #38CFD9;
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+
+        animation: floatAnim 3s linear forwards infinite alternate;
+
+    }
+
+    @keyframes floatAnim {
+        100% {
+          transform: translateX(20vw);
+        }
+      }
+      
+
+    .text-icon {
+        mix-blend-mode: darken;
+        position: relative;
+        bottom: 100px;
+        left: 20%;
+        color: blue;
+
+    }
+
+
+    /* using darken on the H1 will let the black take the color
+    however when another color passes over it the blend colors are changed so it appears */
+
