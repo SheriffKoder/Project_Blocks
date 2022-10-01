@@ -395,3 +395,136 @@ use mix on div and mix on text*/
     /* using darken on the H1 will let the black take the color
     however when another color passes over it the blend colors are changed so it appears */
 
+/*////////////////////////////////////////////////////////////////////*/
+
+
+/*
+css create mask layer, place over element
+fully or partially hide portions
+for svg put in url
+
+
+*/
+.masker {
+    width: 300px;
+    height: 300px;
+
+    background-image: url(https://images.unsplash.com/photo-1528287942171-fbe365d1d9ac?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&w=1200&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+
+    background-size: contain;
+    background-position: center;
+  
+    mask-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/sun.svg);
+    mask-size: 100vmin;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  
+
+}
+
+
+/*////////////////////////////////////////////////////////////////////*/
+
+
+.scroll_animation {
+    height: 300px;
+    width: 500px;
+    background-color: #23424A;
+}
+
+.fade-in {
+
+    opacity: 1;
+    transition: opacity 250ms ease-in;
+
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/* text effect : mix blend mode with filter difference */
+.div02_09 {
+
+    background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-position:0 50%;
+
+    width: 300px;
+    height: 300px;
+
+    padding-top: 52%;
+
+    filter:grayscale(20%) invert(80%);
+    
+    position: relative;
+    z-index: 3;  
+}
+
+
+.div02_09 h1 {
+    
+    color:black;
+    font-size:40px;
+
+    mix-blend-mode: difference; /**/
+    filter:invert(100%); /**/
+
+    position: absolute;
+}
+
+            /*effect on hover */
+            .div02_09_sub {
+
+                background-position:0 50%;
+                background: black;
+                height: 100px;
+                width: 100px;
+
+                position: absolute;
+                z-index: 5;
+            }
+
+            .div02_09_sub:hover {
+                filter:invert(50%);
+                transition:all 1s ease-in;
+                z-index:1;
+                mix-blend-mode: multiply;
+
+            }
+
+
+/* remove white/black background using multiply and contrast */
+.div02_09_2 {
+    background-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-position:0 50%;
+
+    width: 300px;
+    height: 300px;
+
+}
+
+.div02_09_2_sub {
+    background-image:url('https://lever-client-logos.s3.amazonaws.com/6b17474a-d642-400b-90c8-a83f54bf1901-1569347597723.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+    filter: contrast(1);
+    mix-blend-mode: multiply;
+    width: 150px;
+    height: 150px;
+
+}
+
+.div02_09_2_sub_2 {
+    background-image:url('https://thumbs.dreamstime.com/b/angry-roaring-black-white-lion-head-vector-logo-design-illustration-angry-roaring-black-white-lion-head-vector-logo-design-125307141.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+    filter: contrast(1);
+    mix-blend-mode: screen;
+    width: 150px;
+    height: 150px;
+
+}
+
