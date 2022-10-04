@@ -116,11 +116,14 @@ var blendModes = [
 const timer = (ms) => new Promise((res) => setTimeout(res, ms));
 
 const displayModes = async () => {
+
   var i;
   for (i = 0; i < blendModes.length; i++) {
+
     let elem = document.getElementById("blend_h1");
     elem.style.mixBlendMode = blendModes[i];
     elem.innerText = ` ${blendModes[i]}`;
+
     if (i >= blendModes.length - 1) {
       i = 0;
     }
@@ -129,3 +132,41 @@ const displayModes = async () => {
 };
 
 displayModes();
+
+
+/*////////////////////////////////////////////////////////////////////*/  
+/* JS function to change */
+
+
+const faders = document.querySelectorAll('.fade-in');
+const sliders = document.querySelectorAll('.slide-in');
+
+const appearOptions = {
+/*    threshold:1, appearing in the view */
+    rootMargin: "0px 0px -100px 0px"
+
+};
+
+
+const appearOnScroll = new IntersectionObserver(
+
+  function (entries, appearOnScroll) {
+    entries.forEach( entry => {
+
+        if (!entry.isIntersecting) {
+          return; /* function done */
+        }
+        else {
+          entry.target.classList.add('appear');
+          appearOnScroll.unobserve(entry.target);
+        }
+    });
+  }, appearOptions);     
+
+  faders.forEach(fader => {
+      appearOnScroll.observe(fader); 
+  });
+
+  sliders.forEach(slider => {
+      appearOnScroll.observe(slider);
+  });
