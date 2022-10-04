@@ -29,3 +29,54 @@
     left: 50%;
   }
   
+
+/*////////////////////////////////////////////////////////////////////*/  
+/* on fullscreen style */
+
+  :fullscreen {
+    /*background-color: yellow;*/
+  }
+
+    #fs-toggle:not(:fullscreen) {
+        background-color: #faa;
+      }
+      
+      #fs-toggle:fullscreen {
+        background-color: #3b0;
+      }
+
+
+/*////////////////////////////////////////////////////////////////////*/  
+
+
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+
+    line-height: 1;
+    background: none;
+    border: 0;
+
+    padding: 0.5em 1.5em;
+
+}
+
+.btn-1, .btn-2 {
+    color: #386397;
+    border: 2px solid red;
+    transition: outline-offset 250ms ease;
+
+    outline: 2px solid #386397;  /*like border but starts after*/
+    outline-offset: -2px; /* offset location overlaps border location now */
+
+}
+
+.btn-1:hover, .btn-1:focus {    /* focus: keyboard hover*/
+    outline-offset: 2px; /* change offset location by */
+}
+
+.btn-2:hover, .btn-2:focus {    /* focus: keyboard hover*/
+    outline-offset: -5px; /* change offset location by */
+}
+
