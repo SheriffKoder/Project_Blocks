@@ -139,15 +139,16 @@ displayModes();
 
 
 const faders = document.querySelectorAll('.fade-in');
-const sliders = document.querySelectorAll('.slide-in');
 
 const appearOptions = {
-/*    threshold:1, appearing in the view */
-    rootMargin: "0px 0px -100px 0px"
+    threshold: 0.1,
+    rootMargin: "0px 0px -250px 0px"
 
 };
 
 
+//const appearOnScroll = new IntersectionObserver(function, appearOptions);
+//function (p1,p2) { entries.forEach( entry =>{} }
 const appearOnScroll = new IntersectionObserver(
 
   function (entries, appearOnScroll) {
@@ -160,13 +161,10 @@ const appearOnScroll = new IntersectionObserver(
           entry.target.classList.add('appear');
           appearOnScroll.unobserve(entry.target);
         }
-    });
-  }, appearOptions);     
+                              }
+                    );
+                                    }, appearOptions);     
 
   faders.forEach(fader => {
       appearOnScroll.observe(fader); 
-  });
-
-  sliders.forEach(slider => {
-      appearOnScroll.observe(slider);
   });

@@ -517,6 +517,7 @@ mask-size:
     mix-blend-mode: screen;
     width: 150px;
     height: 150px;
+    
 
 }
 
@@ -524,28 +525,46 @@ mask-size:
 /*////////////////////////////////////////////////////////////////////*/
 
 
-.scroll_animation {
+.body {
+    overflow-x: hidden;  /* avoid side scrolling */
+}
+
+.scroll_animation_div {
     height: 300px;
     width: 500px;
     background-color: #23424A;
 }
 
-.fade-in {  /* show */
+/*////////////////////////////////////////*/
+/* show */
+.fade-in {  
 
     opacity: 0;
-    transition: opacity 250ms ease-in;
+    transition: opacity 1000ms ease-in;
 
 }
-
-.fade-in.appear {
+.fade-in.appear {  /* show */
     opacity: 1;
+
 }
 
-.from-left { /* start -50x */
+/*////////////////////////////////////////*/
+/* slide */
+
+.slide-from-left { /* start -50x */
     transform: translateX(-50%);
-    transition:  transform 700ms ease-in;
+    transition: transform 700ms ease-in, opacity 1500ms ease-in;
 }
 
-.from-left.appear { /* when show, got to 0x */
+.slide-from-right {
+    transform: translateX(50%);
+    transition:transform 700ms ease-in;
+    opacity: 0;
+
+
+}
+
+.slide-from-left.appear, .slide-from-right.appear { /* when show, got to 0x */
     transform: translateX(0);
+    opacity: 1;
 }
