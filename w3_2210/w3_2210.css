@@ -65,18 +65,52 @@
 .btn-1, .btn-2 {
     color: #386397;
     border: 2px solid red;
-    transition: outline-offset 250ms ease;
 
     outline: 2px solid #386397;  /*like border but starts after*/
     outline-offset: -2px; /* offset location overlaps border location now */
 
+    transition: outline-offset 250ms ease;
+
+
 }
 
 .btn-1:hover, .btn-1:focus {    /* focus: keyboard hover*/
-    outline-offset: 2px; /* change offset location by */
+    outline-offset: 2px; /* change offset location to be out of border */
 }
 
 .btn-2:hover, .btn-2:focus {    /* focus: keyboard hover*/
-    outline-offset: -5px; /* change offset location by */
+    outline-offset: -5px; /* change offset location to be inside of border */
 }
 
+.btn-3 {
+    background : #386397;
+    border: 2px solid #386397;
+    color: #ffff;
+
+    outline: 2px solid #fff;
+    outline-offset: 0px;
+    transition: outline-offset 250ms ease;
+
+
+}
+
+.btn-3:hover, .btn-3:focus {    /* focus: keyboard hover*/
+    outline-offset: -4px;
+
+}
+
+.btn-4 {
+    outline: 2px solid #386397;
+    color: #386397;
+    border: 2px solid #386397;
+    outline-offset: -4px;
+    transition: outline-offset 250ms ease,
+                outline-width 250ms ease;
+
+}
+
+.btn-4:hover, .btn-4:focus {    /* focus: keyboard hover*/
+    outline-offset: -2px;
+    outline-width: 3px;
+
+}
