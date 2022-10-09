@@ -177,3 +177,37 @@
                 position: absolute;
 
     }
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*justify-self and margin-direction: autos */
+    .test0910 {
+        height: 200px;
+        width: 200px;
+        background: #222;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+
+    .element2, .element3 {
+        justify-self: end; /*works on grid*/
+        color: white;
+        margin-left: auto;  /*works like justify self*/
+        margin-right: auto;  /*works like justify self*/
+        /*both directions center */
+        /*if used on two items, the remaining space will be split evenly responsive auto between them */
+
+    }
+
+    /* justification of an element within its containing block */
+    /*self-end: The element is packed along its own ending edge, which depends on its direction.*/
+
+
+    /* another way of bordering all children*/
+    .test0910 > * {
+        outline: 2px solid limegreen;
+    }
+
+
+/*////////////////////////////////////////////////////////////////////*/
