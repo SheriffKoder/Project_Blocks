@@ -114,3 +114,66 @@
     outline-width: 3px;
 
 }
+
+/*////////////////////////////////////////////////////////////////////*/
+
+    :root {
+        --boxColor: #0ff7;
+    }
+
+    .bodyDiv {
+        background-color: #000;
+        height: 500px;
+        width: 500px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 50px;
+
+        position: relative;
+    }
+
+    .scene {
+        position: relative; /*everything else relative to the scene */
+    }
+
+
+    /*variable size and everything relative to this variable 
+    use em vs the font size first*/
+    .ball {
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background: lightblue;
+
+                /*images on(1), position middle */
+                position: absolute;
+                left: -.5em;
+                top: -3em;
+    }
+
+    .cube {
+        width: 2em;
+        height: 2em;
+        background-color: var(--boxColor);
+
+        /*images on(1), position middle */
+        position: absolute;
+        top: -2em;
+        left: -1em;
+
+    }
+
+    .floor {
+        width: 5em;
+        height: 5em;
+        background-image: repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg );
+        background-size:  1em 1em;
+
+                /*images on(1), position middle */
+                transform: translate(-50%, -50%);
+                position: absolute;
+
+    }
