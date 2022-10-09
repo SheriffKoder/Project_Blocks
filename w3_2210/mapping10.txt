@@ -2,3 +2,5 @@
 
 overlay frontground             fixed, 0's, transpcolor, index2
 on fullscreen style             :fullscreen
+border outline style             outline, offset
+   
