@@ -121,6 +121,10 @@
         --boxColor: #0ff7;
     }
 
+    body {
+
+    }
+
     .bodyDiv {
         background-color: #000;
         height: 500px;
@@ -133,10 +137,17 @@
         font-size: 50px;
 
         position: relative;
+
+
+
     }
 
     .scene {
         position: relative; /*everything else relative to the scene */
+        perspective: 10em; /* distance from 0 point from axis */
+        transform-style: preserve-3d;
+        perspective-origin: 50% calc( 50% - 2em); /*look from up a bit*/
+
     }
 
 
@@ -157,26 +168,53 @@
     .cube {
         width: 2em;
         height: 2em;
-        background-color: var(--boxColor);
+/*        background-color: var(--boxColor); */
 
-        /*images on(1), position middle */
+        /*images on(1), position bottom of cube middle of floor */
         position: absolute;
         top: -2em;
         left: -1em;
 
     }
 
+
+            .left, .right, .top, .bottom {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: var(--boxColor);
+            }
+
+            .front {
+                
+            }
+
     .floor {
-        width: 5em;
-        height: 5em;
+        width: 10em;
+        height: 10em;
         background-image: repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg );
         background-size:  1em 1em;
 
                 /*images on(1), position middle */
-                transform: translate(-50%, -50%);
+                /* rotate x to make floor a floor */
+                transform: translate(-50%, -50%) rotateX(80deg);
                 position: absolute;
 
+
+ 
     }
+
+/*
+rotateX
+perspective
+inc size
+preserve-origin
+==building cube, 
+6side position relative to the cube in html divs 
+add hw
+position by transform
+
+*/
 
 
 /*////////////////////////////////////////////////////////////////////*/
