@@ -115,106 +115,7 @@
 
 }
 
-/*////////////////////////////////////////////////////////////////////*/
 
-    :root {
-        --boxColor: #0ff7;
-    }
-
-    body {
-
-    }
-
-    .bodyDiv {
-        background-color: #000;
-        height: 500px;
-        width: 500px;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        font-size: 50px;
-
-        position: relative;
-
-
-
-    }
-
-    .scene {
-        position: relative; /*everything else relative to the scene */
-        perspective: 10em; /* distance from 0 point from axis */
-        transform-style: preserve-3d;
-        perspective-origin: 50% calc( 50% - 2em); /*look from up a bit*/
-
-    }
-
-
-    /*variable size and everything relative to this variable 
-    use em vs the font size first*/
-    .ball {
-        width: 1em;
-        height: 1em;
-        border-radius: 50%;
-        background: lightblue;
-
-                /*images on(1), position middle */
-                position: absolute;
-                left: -.5em;
-                top: -3em;
-    }
-
-    .cube {
-        width: 2em;
-        height: 2em;
-/*        background-color: var(--boxColor); */
-
-        /*images on(1), position bottom of cube middle of floor */
-        position: absolute;
-        top: -2em;
-        left: -1em;
-
-    }
-
-
-            .left, .right, .top, .bottom {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                background-color: var(--boxColor);
-            }
-
-            .front {
-                
-            }
-
-    .floor {
-        width: 10em;
-        height: 10em;
-        background-image: repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg );
-        background-size:  1em 1em;
-
-                /*images on(1), position middle */
-                /* rotate x to make floor a floor */
-                transform: translate(-50%, -50%) rotateX(80deg);
-                position: absolute;
-
-
- 
-    }
-
-/*
-rotateX
-perspective
-inc size
-preserve-origin
-==building cube, 
-6side position relative to the cube in html divs 
-add hw
-position by transform
-
-*/
 
 
 /*////////////////////////////////////////////////////////////////////*/
@@ -249,3 +150,33 @@ position by transform
 
 
 /*////////////////////////////////////////////////////////////////////*/
+/*radial-gradient and conic gradient */
+
+
+/* By default, shape is ellipse, size is farthest-corner, and position is center. */
+/* shape can be circle or ellipse */
+/* closest-side, farthest-size, closest-corner, farthest-corner*/
+.grad1 {
+
+    height: 200px;
+    width: 300px;
+/*    background-image:  radial-gradient(circle farthest-side at 60% 55% , red 10%, yellow 25%, green 60% );*/
+    background-image:  repeating-radial-gradient(circle farthest-side at 60% 55% , #00a 10%, #00d 25%, #aaa 60% );
+
+}
+
+
+
+/* By default, angle is 0deg and position is center. */
+.grad2 {
+
+    height: 200px;
+    width: 200px;
+/*    background-image: conic-gradient(red 0deg, red 90deg, yellow 90deg, yellow 180deg, green 180deg, green 270deg, blue 270deg); */
+    background-image: conic-gradient( from 90deg at 60% 60% ,red 45deg, yellow 60deg, green 210deg);
+/*    background-image: repeating-conic-gradient(red 10%, yellow 20%); */
+
+    border-radius: 50%;
+  
+
+}

@@ -3,4 +3,7 @@
 overlay frontground             fixed, 0's, transpcolor, index2
 on fullscreen style             :fullscreen
 border outline style             outline, offset
-   
+margin-right/left               position-self in flex  
+justify-self                    position-self property in grid
+outline > *                     all children border-like
+
