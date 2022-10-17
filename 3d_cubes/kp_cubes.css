@@ -1,0 +1,81 @@
+
+
+:root {
+    --box-Color: #0ff7;
+}
+
+
+body {
+
+    background-color: #000;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.scene {
+    position: relative;
+}
+
+
+        .ball {
+            width: 1em;
+            height: 1em;
+            border-radius: 50%;
+            background: lightblue;
+
+            position: absolute;
+            left: -0.5em;
+            bottom: 1em;
+        }
+
+        .cube {
+            width: 2em;
+            height: 2em;
+            background: var(--box-Color);
+
+            position: absolute;
+            top: -1em;
+            left: -1em;
+        }
+
+        .floor {
+
+            position: absolute;
+
+            width: 15em;
+            height: 15em;
+            background-image: 
+            repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+
+            background-size: 1em 1em ;
+
+            transform : translate(-50%, -50%);
+            top: 1em;
+        }
+
+        /*------------------------------------------------------------------------*/
+        /*should reach picture 1 positioning
+        next step is adjusting angles*/
+
+
+        body {
+            font-size: 75px;
+            perspective-origin: 50% calc(50% - 2em);
+        }
+
+        .scene {
+            perspective: 10em;
+            transform-style: preserve-3d; 
+
+        }
+
+
+
+        .floor {
+            transform : translate(-50%, -50%) rotateX(90deg);
+
+        }
