@@ -180,3 +180,17 @@
   
 
 }
+
+
+
+
+/*moving the absolute position with js
+CSS #188 html #101 Js #33 */
+.testdiv_1710 {
+    height: 100px; 
+    width: 100px; 
+    background-color: red;
+
+    position: absolute;
+
+}

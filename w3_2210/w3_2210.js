@@ -32,7 +32,7 @@ function on() {
 
 //moving the absolute position with js
 //CSS #188 html #101 Js #33 
-/*
+
 var left = 0;
 
   function frame() {
