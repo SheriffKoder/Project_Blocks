@@ -35,11 +35,18 @@ body {
         .cube {
             width: 2em;
             height: 2em;
-            background: var(--box-Color);
+        /*    background: var(--box-Color);*/
 
             position: absolute;
             top: -1em;
             left: -1em;
+
+            
+
+
+
+
+
         }
 
         .floor {
@@ -59,23 +66,48 @@ body {
 
         /*------------------------------------------------------------------------*/
         /*should reach picture 1 positioning
-        next step is adjusting angles*/
+        next step is adjusting angles of camera */
 
 
         body {
             font-size: 75px;
-            perspective-origin: 50% calc(50% - 2em);
         }
 
         .scene {
-            perspective: 10em;
-            transform-style: preserve-3d; 
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            perspective-origin: 50% calc(50% - 2em);
+
+
+        }
+
+        .floor {
+            transform : translate(-50%, -50%) rotateX(90deg);
 
         }
 
 
+        /*------------------------------------------------------------------------*/
 
-        .floor {
-            transform : translate(-50%, -50%) rotateX(90deg);
+
+        .cube {
+            transform-style: preserve-3d;
+
+        }
+
+        .left, .right, .front, .back {
+            background: var(--box-Color);
+
+            transform-style: preserve-3d;
+
+            position: absolute;
+            height: 100%;
+            width: 100%;
+
+
+        }
+
+        .front {
+            transform: translateZ(2em);
 
         }
