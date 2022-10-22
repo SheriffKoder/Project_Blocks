@@ -2,6 +2,7 @@
 
 :root {
     --box-Color: #0ff7;
+    --rotateSpeed: 30s;
 }
 
 
@@ -15,11 +16,25 @@ body {
 
 }
 
+        /* size and positioning */
+        .scene {
+            position: relative;
+        }
 
-.scene {
-    position: relative;
-}
+        .floor {
 
+            position: absolute;
+
+            width: 15em;
+            height: 15em;
+            background-image: 
+            repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
+
+            background-size: 1em 1em ;
+
+            transform : translate(-50%, -50%);
+            top: 1em;
+        }
 
         .ball {
             width: 1em;
@@ -49,20 +64,7 @@ body {
 
         }
 
-        .floor {
 
-            position: absolute;
-
-            width: 15em;
-            height: 15em;
-            background-image: 
-            repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
-
-            background-size: 1em 1em ;
-
-            transform : translate(-50%, -50%);
-            top: 1em;
-        }
 
         /*------------------------------------------------------------------------*/
         /*should reach picture 1 positioning
@@ -75,15 +77,16 @@ body {
         }
 
         .scene {
-            perspective: 1000px;
+            perspective: 1000px;  /* .-^-. far out angled */
             transform-style: preserve-3d;
             perspective-origin: 50% calc(50% - 2em);
+            /* x y axis camera look */
 
 
         }
 
         .floor {
-            transform : translate(-50%, -50%) rotateX(90deg);
+            transform : translate(-50%, -50%) rotateX(100deg);
 
         }
 
@@ -118,6 +121,7 @@ body {
         .right {
             transform: rotateY(90deg) translateZ(1em);
             /*rotate before translate */
+
         }
 
         .back {
@@ -161,7 +165,7 @@ body {
         .floor {
 
 
-            /* transparent then black */
+            /* transparent then black on the previous conic-texture */
             background-image: 
             radial-gradient(rgba(255, 255, 255, 0.1), rgb(24, 24, 24) 75%),
             repeating-conic-gradient(from 45deg, #111 0deg 90deg, #222 90deg 180deg);
@@ -181,7 +185,53 @@ body {
 
         }
 
-        .bottom {
+        .bottom { /*shadow around the box from outside*/
             box-shadow: 0 0 1em #000;
 
         }
+
+        /*------------------------------------------------------------------------*/
+
+        /* the ball, shadowing to give depth */
+
+        .ball {
+
+            background-image: radial-gradient( 
+                circle at top, lightblue, 50%, #000
+            );
+
+        }        
+        /* the percent changes the midpoint between the colors */
+
+        /*add shadow on the top layer */
+        .ballShadow {
+            position: absolute;
+            width: 100%; height: 100%;
+            background: radial-gradient(rgba(0, 0, 0, 0.764), #0000 50%);   
+        }
+
+
+        /*------------------------------------------------------------------------*/
+
+
+        .scene {
+            perspective: 1000px;  /* .-^-. far out angled */
+            transform-style: preserve-3d;
+            perspective-origin: 50% calc(50% - 2em);
+            /* x y axis camera look */
+
+            animation: sceneRotate var(--rotateSpeed) infinite linear;
+
+           
+
+        }
+
+        .ball {
+            animation: sceneRotate var(--rotateSpeed) infinite linear reverse;
+
+        }
+
+        @keyframes sceneRotate {
+            to { transform: rotateY(-360deg); }
+            
+        } 
