@@ -7,4 +7,6 @@ margin-right/left               position-self in flex
 justify-self                    position-self property in grid
 outline > *                     all children border-like
 js absolute position            e.style.left = x +2 ..+2..+2
-
+dropdown menu                   (1) ul list item, contains ul with its li's
+                                (2) on hover give area,position, flex, 
+                                (3) style li's
