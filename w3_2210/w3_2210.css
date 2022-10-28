@@ -372,9 +372,32 @@ not just the screen resolution
         srcset="image-small.jpg 1000w,
         srcset="image-big.jpg   2000w "
         
-        style="max-width: 500px />
+        sizes="(max-width: 960px) 960px 100vw"  />
+
+tells the image is 1000px wide 
+set of media queries, 
+when the screen is at least 960px wide, the image will be 960px wide
+otherwise the 100vw default value
+
+remember we keep 1000px standard for retina screens can use it 
+as long their screens are less than 500px 500
+
+//////////////////////////////////////
+
+optimizing layouts
+
+<picture>
+      <source media='(min-width: 401px)'
+              srcset='images/photo-big.jpg'/>
+      <img src='images/photo-small.jpg'/>
+
+</picture>
 
 
+//similar to media queries
+//when the image should be loaded
+//which image file
+//img tag is a fallback for older browsers
 
 */
 
@@ -446,3 +469,7 @@ not just the screen resolution
     animation: rotateCard 1s forwards linear;
 }
 
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
