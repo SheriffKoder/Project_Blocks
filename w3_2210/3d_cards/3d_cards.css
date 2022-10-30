@@ -1,0 +1,234 @@
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/* 3d card flip */
+
+.bg2810 {
+    height: 205px;
+    width: 500px;
+/*
+    background: linear-gradient(to right, rgb(173, 0, 255), rgb(102, 0, 226));
+*/
+    background-color: rgb(169, 169, 169);
+}
+
+.window2 { /*camera*/
+    perspective: 2000px;
+    perspective-origin: 300px 100px;
+
+
+}
+
+.scene2 {   /* items space */
+
+    height: 200px;
+    width: 300px;
+
+
+    border: 1px solid black;
+    border-radius: 30px;
+
+
+
+    /******************************/
+    position: absolute;
+    transform-style: preserve-3d;
+    /******************************/
+
+    top: 00px; /*change to test on other elements*/
+}
+
+.card2 {
+
+    height: 300px;
+    width: 300px;
+    background: linear-gradient(to bottom, rgb(173, 0, 255), rgb(102, 0, 226));
+    border: 1px solid black;
+
+
+    /******************************/
+    position: absolute;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transition: all 0.5s linear;
+    /******************************/
+
+
+    top: 50%;
+    left: 40%;
+}
+
+.card3 {
+
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgba(129, 177, 255, 0.543), rgba(80, 219, 212, 0.378));
+    border: 1px solid black;
+    color:rgba(63, 63, 63, 0.494);
+
+    /******************************/
+    position: absolute;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transition: all 0.5s linear;
+    /******************************/
+
+
+    top: 50%;
+    left: 40%;
+}
+
+/******************************/
+@keyframes rotateCard {
+    to {transform: translate(-50%, -50%) rotateY(60deg);}
+
+}
+
+@keyframes rotateCard2 {
+    to {transform: translate(-50%, -50%) rotateY(60deg); left: 70%;}
+
+}
+
+/******************************/
+.scene2:hover .card2 {
+    animation: rotateCard 0.5s forwards linear;
+}
+
+.scene2:hover .card3 {
+    animation: rotateCard2 0.5s forwards linear;
+}
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+
+
+.text-container {
+    height: 300px;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(129, 177, 255, 0.543), rgba(80, 219, 212, 0.378));    position: relative;
+}
+
+.text-3d {
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #eee;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-shadow: 
+        0   1px 0 rgb(190, 190, 190),
+        0   2px 0 rgb(185, 185, 185),
+        0   3px 0 rgb(180, 180, 180),
+        0   4px 0 rgb(175, 175, 175),
+        0   5px 0 rgb(170, 170, 170),
+        0   6px 0 rgb(165, 165, 165),
+        0   7px 0 rgb(160, 160, 160),
+
+        0   1px 5px rgba(0,0,0,0.05),
+        0   3px 5px rgba(0,0,0,0.10),
+        0   5px 10px rgba(0,0,0,0.15),
+        0   7px 10px rgba(0,0,0,0.20),
+        0   10px 15px rgba(0,0,0,0.25);
+
+        transition: all 0.5 ease-in-out;
+
+}
+
+
+.text-3d:hover {
+
+    text-shadow: 
+    0   1px 0 rgb(190, 190, 190),
+    0   2px 0 rgb(185, 185, 185),
+    0   3px 0 rgb(180, 180, 180),
+    0   4px 0 rgb(175, 175, 175),
+    0   5px 0 rgb(170, 170, 170),
+    0   6px 0 rgb(165, 165, 165),
+    0   7px 0 rgb(160, 160, 160),
+    0   8px 0 rgb(155, 155, 155),
+    0   9px 0 rgb(150, 150, 150),
+
+    0   1px 5px rgba(0,0,0,0.05),
+    0   5px 5px rgba(0,0,0,0.10),
+    0   10px 10px rgba(0,0,0,0.15),
+    0   15px 10px rgba(0,0,0,0.20),
+    0   20px 15px rgba(0,0,0,0.25);
+
+    transform: translate(-50%, -50%);
+    transition: all 0.5 ease-in-out;
+
+    
+}
+
+
+
+.text-3d-2 {
+    text-transform: uppercase;
+    font-size: 50px;
+    color: #eee;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-shadow: 
+    0.5px 0.5px 0 rgb(190, 190, 190),
+    0.75px 0.75px 0 rgb(185, 185, 185),
+    0px 0 0 rgb(180, 180, 180),
+    0px 0 0 rgb(175, 175, 175),
+    0px 0 0 rgb(170, 170, 170),
+    0px 0 0 rgb(165, 165, 165),
+    0px 0 0 rgb(160, 160, 160),
+
+        0   1px 5px rgba(0,0,0,0.05),
+        0   3px 5px rgba(0,0,0,0.10),
+        0   5px 10px rgba(0,0,0,0.15),
+        0   7px 10px rgba(0,0,0,0.20),
+        0   10px 15px rgba(0,0,0,0.25);
+
+        transition: all 1 ease-in-out;
+
+}
+
+
+
+.scene2:hover > .card2 > .text-3d-2 { 
+
+animation: textRotate 0.5s linear 0s 1 forwards;
+}
+
+
+@keyframes textRotate {
+    0% {text-shadow: 
+        0px 0 0 rgb(190, 190, 190),
+        0px 0 0 rgb(185, 185, 185),
+        0px 0 0 rgb(180, 180, 180),
+        0px 0 0 rgb(175, 175, 175),
+        0px 0 0 rgb(170, 170, 170),
+        0px 0 0 rgb(165, 165, 165),
+        0px 0 0 rgb(160, 160, 160),
+    
+            0   1px 5px rgba(0,0,0,0.05),
+            0   3px 5px rgba(0,0,0,0.10),
+            0   5px 10px rgba(0,0,0,0.15),
+            0   7px 10px rgba(0,0,0,0.20),
+            0   10px 15px rgba(0,0,0,0.25);}
+    100% { text-shadow: 
+        -1px 0 0 rgb(190, 190, 190),
+        -2px 0 0 rgb(185, 185, 185),
+        -3px 0 0 rgb(180, 180, 180),
+        -4px 0 0 rgb(175, 175, 175),
+        -5px 0 0 rgb(170, 170, 170),
+        -6px 0 0 rgb(165, 165, 165),
+        -7px 0 0 rgb(160, 160, 160),
+    
+        0   1px 5px rgba(0,0,0,0.05),
+        0   3px 5px rgba(0,0,0,0.10),
+        0   5px 10px rgba(0,0,0,0.15),
+        0   7px 10px rgba(0,0,0,0.20),
+        0   10px 15px rgba(0,0,0,0.25);}
+}
