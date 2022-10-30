@@ -169,6 +169,8 @@
 }
 
 
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
 
 .text-3d-2 {
     text-transform: uppercase;
@@ -242,6 +244,8 @@ animation: textRotate 0.5s linear 0s 1 forwards;
 
 
 
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
 
 .card22 {
 
@@ -257,7 +261,7 @@ animation: textRotate 0.5s linear 0s 1 forwards;
 
     /******************************/
     position: absolute;
-    transform: translate(-50%, -50%) rotateY(0deg) skew(0deg,0deg);
+    transform: translate(-50%, -50%) rotateY(0deg);
     transition: all 0.5s linear;
     /******************************/
 
@@ -298,8 +302,266 @@ animation: textRotate 0.5s linear 0s 1 forwards;
 }
 
 
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/* ?? */
 
 
+.card33_container {
+
+    height: 200px;
+    width: 200px;
+    background-color: rgba(0, 0, 255, 0);
+    position: relative;
+
+}
+
+.card33 {
+
+    height: 100px;
+    width: 10px;
+    background: rgba(0, 21, 255, 0.46);
+
+    position: absolute;
+    left: 66px;
+    top: -18px;
+
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+
+
+}
+
+
+.card44 {
+
+    height: 100px;
+    width: 10px;
+    background: rgba(0, 21, 255, 0.46);
+
+    position: absolute;
+    left: 100px;
+
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(45deg);
+
+
+}
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/*box card */
+
+
+.window1 { /*camera*/
+    perspective: 2000px;
+    perspective-origin: 300px 100px;
+    position: relative;
+
+
+}
+
+.scene1 {   /* items space */
+
+    height: 200px;
+    width: 300px;
+
+
+    border: 1px solid black;
+    border-radius: 30px;
+
+    top: 200px; /*change to test on other elements*/
+    left: 200px;
+
+
+    /******************************/
+    position: absolute;
+    transform-style: preserve-3d;
+    /******************************/
+
+    transform: rotateY(0deg);
+
+}
+
+.scene1:hover {
+    animation: sceneRotate 1s forwards linear;
+    
+    }
+    
+    @keyframes sceneRotate {
+        to { transform: rotateY(60deg); }
+        
+    }
+    
+
+.card1 {
+
+    height: 300px;
+    width: 300px;
+    background: linear-gradient(to bottom, rgb(173, 0, 255), rgb(102, 0, 226));
+    border: 1px solid black;
+
+
+    /******************************/
+    position: absolute;
+    transform: translate(-50%, -50%) rotateY(0deg);
+    transition: all 0.5s linear;
+    /******************************/
+
+
+    top: 50%;
+    left: 50%;
+
+    z-index: 2;
+
+}
+
+
+.card_cont {
+    height: 300px;
+    width: 5px;
+    background: rgba(0, 0, 0, 0.474);
+
+    /******************************/
+    position: absolute;
+    transform: rotateY(90deg) translateZ(-155px) translateX(1.8px) translateY(-151px);
+    transition: all 0.5s linear;
+    /******************************/
+
+    border-top-right-radius: 20px;
+
+    top: 50%;
+    left: 50%;
+
+    z-index: 2;
+
+    box-shadow: 
+    inset -1px 0px 0 rgb(190, 190, 190),
+    inset -2px 0px 0 rgb(185, 185, 185),
+    inset -3px 0 0 rgb(180, 180, 180),
+    inset -4px 0 0 rgb(175, 175, 175),
+    inset -5px 0 0 rgb(170, 170, 170),
+    inset -6px 0 0 rgb(165, 165, 165),
+    inset -7px 0 0 rgb(160, 160, 160),
+    inset -8px 0 0 rgb(0, 0, 0);
+}
+
+
+/*box card manual shape shadow*/
+
+/*
+.card_cont {
+    transform: rotateY(270deg);
+    transition: all 0.5s linear;
+    position: relative;
+    left: -201px;
+    top: -25px;
+    z-index: 3;
+    border: 1px solid black;
+    
+}
+
+.scene2:hover > .card_cont {
+    transform: rotateY(0deg);
+    left: -30px;
+
+}
+
+.card55_2 {
+
+    height: 150px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.02);
+
+    position: absolute;
+    left: 150px;
+
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) skewX(0deg) skewY(-25deg);
+
+    box-shadow: 
+    inset -1px 0px 0 rgb(190, 190, 190),
+    inset -2px 0px 0 rgb(185, 185, 185),
+    inset -3px 0 0 rgb(180, 180, 180),
+    inset -4px 0 0 rgb(175, 175, 175),
+    inset -5px 0 0 rgb(170, 170, 170),
+    inset -6px 0 0 rgb(165, 165, 165),
+    inset -7px 0 0 rgb(160, 160, 160),
+    inset -8px 0 0 rgb(0, 0, 0);
+
+}
+
+.card55_1 {
+
+    height: 150px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.02);
+
+    position: absolute;
+    left: 150px;
+    top: 50px;
+
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg);
+
+}
+.card55 {
+
+    height: 150px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.02);
+
+    position: absolute;
+    left: 150px;
+    top: 100px;
+
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) skewX(0deg) skewY(25deg);
+    box-shadow: 
+    inset -1px 0px 0 rgb(190, 190, 190),
+    inset -2px 0px 0 rgb(185, 185, 185),
+    inset -3px 0 0 rgb(180, 180, 180),
+    inset -4px 0 0 rgb(175, 175, 175),
+    inset -5px 0 0 rgb(170, 170, 170),
+    inset -6px 0 0 rgb(165, 165, 165),
+    inset -7px 0 0 rgb(160, 160, 160),
+    inset -8px 0 0 rgb(0, 0, 0);
+
+}
+
+
+*/
+
+
+
+.card333 {
+
+    height: 300px;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    left: 66px;
+    top: -18px;
+
+    border: 1px solid black;
+
+    transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg);
+    box-shadow: 
+    inset -1px 0px 0 rgb(190, 190, 190),
+    inset -2px 0px 0 rgb(185, 185, 185),
+    inset -3px 0 0 rgb(180, 180, 180),
+    inset -4px 0 0 rgb(175, 175, 175),
+    inset -5px 0 0 rgb(170, 170, 170),
+    inset -6px 0 0 rgb(165, 165, 165),
+    inset -7px 0 0 rgb(160, 160, 160),
+    inset -8px 0 0 rgb(0, 0, 0);
+
+
+}
 
 
 
