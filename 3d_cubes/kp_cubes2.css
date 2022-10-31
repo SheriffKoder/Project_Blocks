@@ -27,40 +27,42 @@ body {
 
 .scene {
     position: relative;
+
+    font-size: 100px;
 }
 
 .floor {
 
-    height: 400px;
-    width: 400px;
+    height: 4em;
+    width: 4em;
     background: rgb(61, 61, 61);
 
 
     position: absolute;
     transform: translate(-50%, -50%);
 
-    top: 50px;
+    top: 1em;
 
 }
 
 .cube {
 
-    width: 100px;
-    height: 100px;
+    width: 2em;
+    height: 2em;
     background-color: var(--box-Color);
 
     position: absolute;
 
-    left: -50px;
-    top: -50px;
+    left: -100px;
+    top: -100px;
 
 
 }
 
 
 .ball {
-    width: 50px;
-    height: 50px;
+    width: .5em;
+    height: .5em;
 
     background-color: white;
     position: absolute;
@@ -74,16 +76,21 @@ body {
 
 .window { /*camera*/
     perspective: 700px;
-    perspective-origin: 50% 50%;
+    perspective-origin: 50% -15em;
 
 
 }
 
 
-.scene {    /*rotate all items together */
+.scene {    /* contains/rotate all items together */
 
     transform-style: preserve-3d;
 
+    animation: sceneRotate 10s 0 linear;
+
+}
+
+.scene:hover {
     animation: sceneRotate 10s infinite linear;
 
 }
@@ -110,9 +117,74 @@ body {
 /* till here card */
 /*/////////////////////////////////////////////////////*/
 
+/* so if any rotation put preserve, 
+window > perspective 
+container > main rotate, preserve
+item > preserve rotate 
+
+font: 100px
+and work on em's relation 1em, 4em, etc.
+
+*/
 
 .cube {
     transform-style: preserve-3d;
     transform: rotateX(0deg);
 
+}
+
+.left, .right, .front, .back, .top, .bottom {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.front {
+
+    transform: rotateY(0deg) translateZ(1em);
+    border: 1px solid black;
+
+}
+
+.back {
+
+    transform: rotateY(0deg) translateZ(-1em);
+    border: 1px solid black;
+
+}
+
+.left {
+
+    transform: rotateY(90deg) translateZ(-1em);
+    border: 1px solid black;
+
+}
+
+.right {
+
+    transform: rotateY(-90deg) translateZ(-1em);
+    border: 1px solid black;
+
+}
+
+.top {
+    background-color: rgba(255, 0, 0, 0.336);
+    transform: rotateX(90deg) translateZ(1em);
+    border: inset 5px solid black;
+
+}
+
+.bottom {
+    border: 1px solid rgb(0, 255, 60);
+
+    background-color: rgba(255, 0, 0, 0.9);
+    transform: rotateX(90deg) translateZ(-0.98em);
+}
+
+.cube {
+    background: none;
 }
