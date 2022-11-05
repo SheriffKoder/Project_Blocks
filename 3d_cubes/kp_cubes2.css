@@ -67,12 +67,14 @@ body {
     background-color: white;
     position: absolute;
     border-radius: 50%;
-    top: -100px;
+    top: -1.5em;
     left: -25px;
 }
 
 
 /*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/* the view */
 
 .window { /*camera*/
     perspective: 700px;
@@ -103,6 +105,7 @@ body {
 
 
 .floor {
+
     transform: translate(-50%, -50%) rotateX(90deg);
     /*transition: all 1s linear;*/
 }
@@ -126,6 +129,11 @@ font: 100px
 and work on em's relation 1em, 4em, etc.
 
 */
+
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/* positioning sides */
+
 
 .cube {
     transform-style: preserve-3d;
@@ -187,4 +195,42 @@ and work on em's relation 1em, 4em, etc.
 
 .cube {
     background: none;
+}
+
+
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/* adding shadows */
+
+.floor {
+
+    background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.1), rgba(24,24,24,1) 80% );
+    /* white and black(takes 75% from out)*/
+}
+
+
+.left, .right, .front, .back, .top {
+
+    box-shadow: 0 0 0.5em #000a inset;
+}
+
+.bottom {
+
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.27);
+    
+}
+
+
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/* the ball shadowing and giving depth */
+
+
+/*color in, color out 75%) color out having total % of *
+/*circle at top, color, %, color ) color %break color*/
+
+
+.ball {
+    background-image: radial-gradient(circle at top, lightblue, 50%, #000);
 }
