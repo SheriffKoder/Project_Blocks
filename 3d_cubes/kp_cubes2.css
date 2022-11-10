@@ -92,10 +92,13 @@ body {
 
 }
 
-.scene:hover {
+.scene {
     animation: sceneRotate 10s infinite linear;
+    animation-delay: 0 ;
 
 }
+
+
 
 @keyframes sceneRotate {
     to { transform: rotateY(-360deg); }
@@ -224,7 +227,7 @@ and work on em's relation 1em, 4em, etc.
 
 /*/////////////////////////////////////////////////////*/
 /*/////////////////////////////////////////////////////*/
-/* the ball shadowing and giving depth */
+/* the ball shadowing, underlying shadow, keep to front with rotation */
 
 
 /*color in, color out 75%) color out having total % of *
@@ -233,4 +236,46 @@ and work on em's relation 1em, 4em, etc.
 
 .ball {
     background-image: radial-gradient(circle at top, lightblue, 50%, #000);
+}
+
+
+/* adding a layer on top-div to give space and background*/
+
+.ballShadow {
+
+    position: absolute;
+    width: 100%; height: 100%;
+    background: radial-gradient( rgba(0, 0, 0, 0.734), rgba(0, 0, 0, 0) 50%);
+
+}
+
+
+.ball {
+    animation: ballRotate 10s infinite linear reverse;
+
+}
+
+@keyframes ballRotate {
+    to { transform: rotateY(-360deg); }
+
+}
+
+
+
+
+/*/////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+/* ball bouncing animation */
+
+.ball {
+    animation: 
+    ballRotate 10s infinite linear reverse,
+    ballBounce 1.5s infinite ease-out;
+
+}
+
+@keyframes ballBounce {
+    0%, 100% {    top: -1.5em; }
+    50% {  top: -2.0em; animation-timing-function: ease-in;}
+    
 }
