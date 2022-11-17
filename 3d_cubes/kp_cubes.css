@@ -201,7 +201,7 @@ body {
                 circle at top, lightblue, 50%, #000
             );
 
-        }        
+        }        to 
         /* the percent changes the midpoint between the colors */
 
         /*add shadow on the top layer */
@@ -228,7 +228,7 @@ body {
         }
 
         .ball {
-            animation: 
+            animation:  
             sceneRotate var(--rotateSpeed) infinite linear reverse;
         }
 
