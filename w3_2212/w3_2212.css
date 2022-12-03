@@ -52,3 +52,86 @@
 }
 
 
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/* layered card */
+
+
+.layeredcard {
+
+    transform-style: preserve-3d;
+
+    transform: 
+    scale(0.75)
+    rotateY(-30deg)
+    rotateX(45deg)
+    translateZ(4.5rem)
+    ;
+
+    transform-origin: 50% 100%;
+    
+    box-shadow: 1rem 1rem 2rem rgba(0,0,0,0.25);
+
+    transition: 0.6s ease transform;
+}
+
+
+.layeredcard:hover {
+
+    transform: scale(1);
+
+}
+
+
+        .layeredcard::before {
+            content: "";
+
+            position: absolute;
+
+            height: 198px;
+            width: 198px;
+            border-radius: 32px;
+            background-color: none;
+            border: 1px solid rgb(155, 178, 200);
+
+            transform: translateZ(4rem);    /**/
+            transition: 0.6s ease transform;
+
+        
+
+        }
+
+        .layeredcard:hover::before {
+            transform: translateZ(0rem);    /**/
+        }
+
+
+        .layeredcard::after {
+            content: "";
+
+            position: absolute;
+
+            height: 197px;
+            width: 197px;
+            border-radius: 32px;
+            background-color: lightslategray;
+            border: 1px solid wheat;
+
+            transform: translateZ(-4rem);    /**/
+            transition: 0.6s ease transform;
+
+        
+
+        }
+
+        .layeredcard:hover::after {
+            transform: translateZ(-1rem);    /**/
+        }
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/* name */
+

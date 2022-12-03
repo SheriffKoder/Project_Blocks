@@ -1,5 +1,9 @@
 
 
-floor card             up smooth animation
+floorcard             up smooth animation
                         using transition, shadow values increased to push away 
                         with blur -ve so its inward 
+
+layeredcard           switch to transition 0
+                        add before and after(slightly smaller px)
+                        with translation of z -4rem
