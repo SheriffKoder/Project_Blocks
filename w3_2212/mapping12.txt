@@ -1,0 +1,5 @@
+
+
+floor card             up smooth animation
+                        using transition, shadow values increased to push away 
+                        with blur -ve so its inward 

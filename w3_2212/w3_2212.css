@@ -1,0 +1,54 @@
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+/* floor card */
+
+.main {
+
+    height: 200px;
+    width: 200px;
+    border-radius: 32px;
+    background-color: lightskyblue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    left: 100px;
+
+}
+
+.floorcard {
+
+    transform-style: preserve-3d;
+    transform: rotateX(51deg) rotateZ(43deg);
+
+    box-shadow: 
+    1px 1px 0 1px #f9f9fb,               /*border shadow*/
+    -1px 0 28px 0 rgba(34,33,81,0.01),  /*upper shadow*/
+    28px 28px 28px 0 rgba(34,33,81,0.25) /*lower shadow*/
+    ;
+
+    transition: .4s ease-in-out transform, .4s ease-in-out box-shadow;
+
+}
+
+.floorcard:hover {
+
+
+    transform: 
+    translate3d(0px, -16px, 0px)        /*translate y by -ve */
+    rotateX(51deg) rotateZ(43deg);
+
+    box-shadow: 
+    1px 1px 0 1px #f9f9fb,
+    -1px 0 28px 0 rgba(34,33,81,0.01),
+    54px 54px 28px -10px rgba(34,33,81,0.25) /*key: -10px blur */
+
+    ;
+
+}
+
+
