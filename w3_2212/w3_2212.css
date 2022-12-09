@@ -133,5 +133,138 @@
 
 /*////////////////////////////////////////////////////////////////////*/
 /*////////////////////////////////////////////////////////////////////*/
-/* name */
+/* 3d-transforms */
 
+/*to activate 3d space, an element needs perspective(1)
+perspective = vanishing point
+
+for all elements to have the same vanishing point, rotates with camera
+use the perspective on the parent element
+
+but on each separate element, all will be aligned with itself
+more control
+
+
+perspective determines the intensity 
+2000px very far
+100px like an insect viewing a massive object
+
+---------------------------------------------
+
+vanishing point is set to center by default 
+change position of vanishing point with
+perspective-origin (2) 
+
+X 0(left 0) - 100%(right 0)
+Y 0 (looking from above) 100% (looking from below)
+
+backface visible (3)
+(4) rotate (the X or Y are fixed and rotate around it)
+translate: position along the 3d space x,y,z
+translate3d can have positive impact on performance
+
+(5) transform-style: preserve-3d;
+/*for its children to inherit the applied perspective from the scene 
+and live in the same 3d space */
+
+
+
+*/
+.testdiv_0912 {
+
+    transform: perspective(400px) rotateY(45deg);   
+    /*that is enough to rotate card*/
+    /*or*/
+    /*perspective: 400px*/
+
+}
+
+
+.scene0912 {
+    width: 200px;
+    height: 200px;
+    border: 1px solid #CCC;
+    margin: 40px;
+    perspective: 400px;
+
+  }
+  
+  .panel {
+    width: 55px;
+    height: 55px;
+    float: left;
+    margin: 5px;
+    background: red;
+    transform: perspective(400px) rotateY(45deg);
+    /*transform: rotateY(45deg);*/
+    perspective-origin: 25% 75%;
+
+  }
+
+  /*////////////////////////////////////////////////////////////////////*/
+
+  /*
+  scene perspective
+  card_cont stretched and given transform 3d for its children
+  card_cont will be rotated on hover
+
+  cards will be both absolute and stretched (on top each other)
+  no backface
+
+  card2 will be rotated 180 so when the card_cont rotate it rotates total 360
+
+
+
+  */
+
+
+  .scene {
+    width: 200px;
+    height: 200px;
+
+
+
+    perspective: 600px;
+  }
+
+  .card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+
+
+
+    transform-style: preserve-3d;
+    /*for its children to inherit the applied perspective from the scene 
+    and live in the same 3d space */
+
+/*    transform-origin: 100% 10%; /*the x made a flipbook effect*/
+transform-origin: center right; /*flipbook effect*/
+
+  }
+
+
+  .card_face {
+    position: absolute; /*reset their positions in 2D*/
+    height: 100%;
+    width: 100%;
+
+
+    backface-visibility: hidden;
+  }
+
+  .card_face_front {
+    background: red;
+  }
+
+  .card_face_back {
+    background: blue;
+    transform: rotateY(180deg);
+  }
+
+  .card:hover {
+    transform: translateX(-100%) rotateY(180deg);
+    /* translateX here is a weather app effect */
+
+  }
