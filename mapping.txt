@@ -1,0 +1,19 @@
+
+
+w3_2209:CSS
+
+Snackbar                                animation: @keyframe_name
+Scroll activity                         scrollTop give/take value
+Layers
+gradient background scroll              angle, start%
+// background                           angle, start/end px
+color scrollbar                         selectors
+mix-blend-mode/transparency             double mix-blend-mode
+smooth scroll, hide/show                property
+input placeholder customize             selector
+animate-like battery icon               setTimeout add html, setinterval
+stacking context of z-index             isolation or relative/z1/-1
+spotlight                               black bd, h1 blendmode:darken, color: spot 
+clear logo bd black/white               contrast, mix-blend;
+difference text effect                  mix-blend, invert
+text/circle image mask                  mask-image 

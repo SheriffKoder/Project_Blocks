@@ -7,7 +7,8 @@ body {
 
 
 .Thirteen_091 {
-    /*position: relative; /* relative/absolute rule gives on top style when combined with top/left 00 */
+    position: relative;
+    /* relative/absolute rule gives on top style when combined with top/left 00 */
 }
 
 .Thirteen_091::before {
@@ -19,7 +20,7 @@ body {
     color: white;
     font-weight: 900;
 
-    display: block;
+    display: inline;
 
 
 }
@@ -28,8 +29,15 @@ body {
     content: open-quote;
     font-size: 2em;
     color: red;
+    display: block;
+
 
 }
+
+
+
+
+
 
 /*/////////////////////////////////////////////////////////////////////////////*/
 a[data-tool-tip] {
@@ -41,7 +49,8 @@ a[data-tool-tip] {
 
 a[data-tool-tip]::after {
 
-    content: attr(data-tool-tip);
+    content: attr(data-tool-tip); /*after displays the content of this attribute */
+    /* psdo only, ex: button::after notification circle when use a data-count and change it on fly*/
     display: block; /*separate from element's line*/
     position: absolute;
     bottom: 0;
@@ -54,7 +63,7 @@ a[data-tool-tip]::after {
     font-size: 0.75em;
     white-space: nowrap;    /*avoid text wrapping*/
 
-    transform: scale(0);    /*scale 0 , so it does not exist anymore*/
+    transform: scale(0);    /* scale 0 , so it does not exist anymore*/
                             /*like opacity trait*/
 
     transition: 
@@ -122,7 +131,7 @@ a[href^="http"]::before {
     content: ' ';
     height: 100%;
     display: block;
-    position: absolute; /* to control exactly where be*/
+    position: absolute; /* to control exactly where be */
 
 }
 

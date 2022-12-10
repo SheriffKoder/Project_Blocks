@@ -1,0 +1,184 @@
+
+:root {
+    --box-Color: #0ff7;
+    --floor: 500px;             /**/
+    --perspective: -200px;      /*angle*/
+
+    --font-size: 60px;          /*size of cube*/
+    --cube-width: 2em;
+    --cube-height: 2em;
+
+
+    --sides_percent: 30%;       /*thickness% from a cube*/
+    --sides: 30em;              /*same%value*/
+    --sides2: calc((var(--sides) / 100));
+    --basic: calc(var(--cube-width) - var(--sides2));
+    --remaining: calc(var(--cube-width) - var(--basic));
+
+    --remaining2: calc(1em - 0.9em);
+
+}
+
+body {
+
+    background-color: black;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+
+.window { /*camera*/
+    perspective: 700px;
+    perspective-origin: 50% var(--perspective);
+
+
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+.scene {
+    position: relative;
+    font-size: var(--font-size);
+    transform-style: preserve-3d;
+
+    animation: sceneRotate 10s 0 linear;
+
+}
+
+.scene:hover {
+    animation: sceneRotate 10s infinite linear;
+    animation-delay: 0 ;
+
+}
+
+
+@keyframes sceneRotate {
+    to { transform: rotateY(-360deg); }
+    
+}
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+
+
+
+.floor {
+    height: var(--floor);
+    width: var(--floor);
+    background: rgb(61, 61, 61);
+    position: absolute;
+    transform: translate(-50%,-50%) rotateX(90deg) translateZ(0em);
+}
+
+.cube {
+    width: var(--cube-width);
+    height: var(--cube-height);
+
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateX(calc(var(--cube-width)/-2)) translateY(calc(var(--cube-width)/-1));
+
+
+
+}
+
+/*
+.cube2 {
+    width: var(--cube-width);
+    height: var(--cube-height);
+
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:  translateX(calc((calc(var(--cube-width)/-1)*2))) 
+                translateY(calc((calc(var(--cube-width)/-1)*1)))
+                translateZ(calc((calc(var(--cube-width)/1)*0.5)))
+                rotateY(45deg);
+    
+
+
+}
+*/
+/*////////////////////////////////////////*/
+
+.front, .back {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.front {
+
+    /*the width, basic 1em %*/
+    transform: rotateY(0deg) translateZ(var(--remaining));
+    border: 1px solid black;
+
+}
+.back {
+
+    /*the width, basic 1em %*/
+    transform: rotateY(180deg) translateZ(var(--remaining));
+    border: 1px solid black;
+
+}
+
+
+
+/*////////////////////////////////////////*/
+
+
+.left, .right {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: 100%;
+    width: var(--sides_percent);
+
+}
+
+.left {
+    /*cube - the its width, basic 1em%*/
+    transform: rotateY(90deg) translateZ(var(--basic));
+    border: 1px solid black;
+
+}
+.right {
+
+    /*the remaining from left, basic1em */
+    transform: rotateY(-90deg) translateZ(var(--remaining));
+    border: 1px solid black;
+
+}
+
+
+.top, .bottom {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: var(--sides_percent);
+    width: 100%;
+
+}
+
+.top {
+        /*the remaining from bottom, basic1em */
+
+    transform: rotateX(90deg) translateZ(var(--remaining));
+}
+
+.bottom {
+        /*cube - its width, basic 1em%*/
+    transform: rotateX(-90deg) translateZ(var(--basic));
+
+}
+

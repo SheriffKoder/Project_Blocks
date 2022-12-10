@@ -30,6 +30,18 @@ transition: opacity 100ms linear;
 
 */
 
+    /* so to create the button itself,
+    border-neon, in/out shadow-neon, text-shadow white/neon
+
+    before(add reflection)
+    add a reflection using the transform line. filterblur, opacity
+    
+    after(on hover, reverse)
+    add background and box shadow neon, make text color background color this time
+    
+    switch opacities on hover
+
+*/
 
 *,
 *::before,
@@ -59,8 +71,9 @@ body {
     padding: 0.25em 1.5em;
     border-radius: 0.25em;
 
+    /*white one followed by the other one*/
     text-shadow: 
-    0 0 0.125em hsl(0 0% 100% / 0.3), /*white one followed by the other one*/
+    0 0 0.125em hsl(0 0% 100% / 0.3), 
     0 0 0.25em currentColor ; /*blur, change on font size itself*/
 
     /*white lesser-blur shadow gives it more brightness*/

@@ -1,18 +1,4 @@
 
-:root{
-    font-size: 20px;
-
-    --clr-darkgrey: hsl(0, 0%, 73%);
-    --clr-darkergrey: hsl(0, 0%, 18%);
-    --clr-background-box: hsl(0, 0%, 95%);
-    --clr-header-color: hsl(0deg 0% 58%);
-    /*hsl(0, 0%, 27%)*/
-
-    --clr-text-shadow-border: hsl(143, 85%, 34%);
-    --clr-text-shadow : hsl(143, 87%, 47%);
-    --clr-output-text: hsl(0, 0%, 82%);
-    
-}
 
 body {
     background-color: var(--clr-darkergrey);

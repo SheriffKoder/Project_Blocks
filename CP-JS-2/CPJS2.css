@@ -1,18 +1,4 @@
 
-:root{
-    font-size: 20px;
-
-    --clr-darkgrey: hsl(0, 0%, 73%);
-    --clr-darkergrey: hsl(0, 0%, 18%);
-    --clr-background-box: hsl(0, 0%, 95%);
-    --clr-header-color: hsl(0deg 0% 58%);
-    /*hsl(0, 0%, 27%)*/
-
-    --clr-text-shadow-border: hsl(143, 85%, 34%);
-    --clr-text-shadow : hsl(143, 87%, 47%);
-    --clr-output-text: hsl(0, 0%, 82%);
-    
-}
 
 body {
     background-color: var(--clr-darkergrey);
@@ -35,6 +21,7 @@ body {
     flex-direction: column;
     box-shadow: 1px 1px 12px 2px var(--clr-background-box),
     1px 1px 12px 5px var(--clr-text-shadow);
+
 
 }
 
@@ -70,11 +57,13 @@ body {
 
     font-family: monospace;
 
+
 }
 
 .Normal_Button:hover {
     text-shadow: 0px 0px 4px var(--clr-text-shadow-border);
     color: var(--clr-background-box);
+
 }
 
 .Sub_Div2 {

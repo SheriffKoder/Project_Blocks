@@ -10,3 +10,6 @@ js absolute position            e.style.left = x +2 ..+2..+2
 dropdown menu                   (1) ul list item, contains ul with its li's
                                 (2) on hover give area,position, flex, 
                                 (3) style li's
+div mirror
+retina images                   srcset="" 2x
+3d card flip
