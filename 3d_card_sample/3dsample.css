@@ -6,7 +6,7 @@
 
     --font-size: 60px;          /*size of cube*/
     --cube-width: 2em;
-    --cube-height: 2em;
+    --cube-height: 5em;
 
 
     --sides_percent: 30%;       /*thickness% from a cube*/
@@ -15,7 +15,8 @@
     --basic: calc(var(--cube-width) - var(--sides2));
     --remaining: calc(var(--cube-width) - var(--basic));
 
-    --remaining2: calc(1em - 0.9em);
+    --basic2: calc(var(--cube-height) - var(--sides2) - 0.0em); /*for top and bottom */
+    --remaining2: calc(var(--cube-height) - var(--basic2) - 0.0em);
 
 }
 
@@ -70,7 +71,7 @@ body {
 .floor {
     height: var(--floor);
     width: var(--floor);
-    background: rgb(61, 61, 61);
+    background: rgba(61, 61, 61, 0.377);
     position: absolute;
     transform: translate(-50%,-50%) rotateX(90deg) translateZ(0em);
 }
@@ -165,7 +166,7 @@ body {
     background: var(--box-Color);
 
     position: absolute;
-    height: var(--sides_percent);
+    height: calc(var(--sides)/50);
     width: 100%;
 
 }
@@ -173,12 +174,12 @@ body {
 .top {
         /*the remaining from bottom, basic1em */
 
-    transform: rotateX(90deg) translateZ(var(--remaining));
+    transform: rotateX(90deg) translateZ(var(--remaining2));
 }
 
 .bottom {
         /*cube - its width, basic 1em%*/
-    transform: rotateX(-90deg) translateZ(var(--basic));
+    transform: rotateX(-90deg) translateZ(var(--basic2));
 
 }
 
