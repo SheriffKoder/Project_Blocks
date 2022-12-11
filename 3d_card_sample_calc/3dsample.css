@@ -1,0 +1,303 @@
+
+:root {
+    --box-Color: #0ff7;
+    --floor: 500px;             /**/
+    --perspective: -10vh;      /*angle -40vh*/
+    --border-color: rgb(0,0,0,0);
+    --calc-background:rgba(45,45,45,255);
+    --calc-background2:rgba(35,35,35,255);
+
+    --font-size: 15vh;          /*size of cube*/
+    --cube-width: 2em;
+    --cube-height: 4.2em;
+
+
+    --sides_percent: 5%;       /*thickness% from a cube*/
+    --sides: 5em;              /*same%value*/
+    --sides2: calc((var(--sides) / 100));
+    --basic: calc(var(--cube-width) - var(--sides2));
+    --remaining: calc(var(--cube-width) - var(--basic));
+
+    --basic2: calc(var(--cube-height) - var(--sides2) - 0.0em); /*for top and bottom */
+    --remaining2: calc(var(--cube-height) - var(--basic2) - 0.0em);
+
+
+
+
+    --lcd-font:rgba(76, 84, 190, 0.9);
+    --button:rgba(121,120,125,255);
+    --button-text:rgba(246,250,251,255);
+    --button-text-shadow: rgba(191,196,196,255);
+    --button-2:rgba(145,190,50,255);
+    
+
+    --test-border: none;
+    --test-border2: none;
+    --test-border3: rgb(52, 241, 0);
+    --test-border4: yellow;
+
+
+}
+
+body {
+
+    background-color: none;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+
+}
+
+.objectcontainer1 {
+
+    background-color: black;
+    height: 80vh;
+    width: 80vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.window { /*camera*/
+    perspective: 1300px;
+    perspective-origin: 50% var(--perspective);
+
+
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+.scene {
+    position: relative;
+    font-size: var(--font-size);
+    transform-style: preserve-3d;
+
+    animation: sceneRotate 10s 0 linear;
+    top: -2.5vh;
+
+}
+
+.scene {
+    animation: entry2 1.5s 1 forwards linear;
+    animation-delay: 0 ;
+
+}
+
+
+.scene:hover {
+    animation: sceneRotate 10s infinite linear;
+
+}
+
+@keyframes sceneRotate {
+    to { transform: rotateY(-360deg); }
+    
+}
+
+@keyframes entry {
+    0% { 
+        right: -80vw; 
+        transform: rotateY(-90deg) rotateX(10deg);
+    }
+    50% {   
+        right: 0vw; 
+        transform: rotateY(20deg) rotateX(10deg);
+
+    }
+    100% {
+        right: 0vw; 
+        transform: rotateY(0deg) rotateX(10deg);
+
+    }
+}
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+
+
+
+.floor {
+    height: var(--floor);
+    width: var(--floor);
+    background: rgba(61, 61, 61, 0.0);
+    position: absolute;
+    transform: translate(-50%,-50%) rotateX(90deg) translateZ(0em);
+}
+
+.cube {
+    width: var(--cube-width);
+    height: var(--cube-height);
+
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateX(calc(var(--cube-width)/-2)) translateY(calc(var(--cube-width)/-1));
+
+
+
+}
+
+/*
+.cube2 {
+    width: var(--cube-width);
+    height: var(--cube-height);
+
+    position: absolute;
+    transform-style: preserve-3d;
+    transform:  translateX(calc((calc(var(--cube-width)/-1)*2))) 
+                translateY(calc((calc(var(--cube-width)/-1)*1)))
+                translateZ(calc((calc(var(--cube-width)/1)*0.5)))
+                rotateY(45deg);
+    
+
+
+}
+*/
+/*////////////////////////////////////////*/
+
+.front, .back {
+    border-radius: calc(var(--font-size)/4);
+
+}
+
+.front, .back {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+}
+
+.front {
+
+    /*the width, basic 1em %*/
+    transform: rotateY(0deg) translateZ(var(--remaining));
+    border: 1px solid var(--border-color);
+
+}
+.back {
+
+    /*the width, basic 1em %*/
+    transform: rotateY(180deg) translateZ(var(--remaining));
+    border: 1px solid var(--border-color);
+
+}
+
+
+
+/*////////////////////////////////////////*/
+
+
+.left, .right {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: 90%;
+    width: calc(var(--sides_percent) - 0.025em);
+
+}
+
+.left {
+    /*cube - the its width, basic 1em%*/
+    transform: rotateY(90deg) translateZ(calc(var(--basic) + 0.02em)) translateY(0.2em);
+    border: 1px solid var(--border-color);
+
+}
+.right {
+
+    /*the remaining from left, basic1em */
+    transform: rotateY(-90deg) translateZ(calc(var(--remaining) - 0.00em)) translateY(0.2em);
+    border: 1px solid var(--border-color);
+
+}
+
+
+.top, .bottom {
+
+    background: var(--box-Color);
+
+    position: absolute;
+    height: calc(var(--sides)/50);
+    width: 85%;
+
+}
+
+.top {
+        /*the remaining from bottom, basic1em */
+
+    transform: rotateX(90deg) translateZ(var(--remaining2)) translateX(0.17em);
+}
+
+.bottom {
+        /*cube - its width, basic 1em%*/
+    transform: rotateX(-90deg) translateZ(var(--basic2)) translateX(0.17em);
+
+}
+
+
+
+
+
+
+
+
+
+/*////////////////////////////////////////////////////////////////////*/
+/*////////////////////////////////////////////////////////////////////*/
+
+
+
+
+
+
+.top, .bottom, .left, .right {
+    background: var(--calc-background2);
+    
+}
+
+.back {
+    background: var(--calc-background);
+    
+}
+
+.front {
+    background: var(--calc-background);
+
+}
+
+.back, .front {
+    box-shadow: inset 0px 10px 100px rgb(25, 25, 25);
+}
+
+
+.front2 {
+    transform: rotateY(0deg) translateZ(0.06em);
+    background-image: url(./images/cal2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+
+
+.front2 {
+    border: 1px solid var(--test-border);
+    display: flex;
+    flex-direction: column;
+
+}
+
