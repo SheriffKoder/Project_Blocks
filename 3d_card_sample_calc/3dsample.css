@@ -4,16 +4,20 @@
     --floor: 500px;             /**/
     --perspective: -10vh;      /*angle -40vh*/
     --border-color: rgb(0,0,0,0);
+/*
     --calc-background:rgba(45,45,45,255);
     --calc-background2:rgba(35,35,35,255);
-
+*/    
+    --calc-background: #0ff7;
+    --calc-background2: rgba(255, 0, 25, 0.467);
+    
     --font-size: 15vh;          /*size of cube*/
     --cube-width: 2em;
     --cube-height: 4.2em;
 
 
-    --sides_percent: 5%;       /*thickness% from a cube*/
-    --sides: 5em;              /*same%value*/
+    --sides_percent: 25%;       /*thickness% from a cube*/
+    --sides: 25em;              /*same%value*/
     --sides2: calc((var(--sides) / 100));
     --basic: calc(var(--cube-width) - var(--sides2));
     --remaining: calc(var(--cube-width) - var(--basic));
@@ -127,9 +131,9 @@ body {
 .floor {
     height: var(--floor);
     width: var(--floor);
-    background: rgba(61, 61, 61, 0.0);
+    background: rgba(61, 61, 61, 1);
     position: absolute;
-    transform: translate(-50%,-50%) rotateX(90deg) translateZ(0em);
+    transform: translate(-50%,-50%) rotateX(90deg) translateZ(calc(var(--sides) * -1/10));
 }
 
 .cube {
@@ -276,7 +280,7 @@ body {
 }
 
 .back, .front {
-    box-shadow: inset 0px 10px 100px rgb(25, 25, 25);
+    box-shadow: inset 0px 10px 100px rgb(25, 25, 25, 0.0);
 }
 
 
@@ -285,19 +289,12 @@ body {
     background-image: url(./images/cal2.png);
     background-repeat: no-repeat;
     background-size: cover;
-
-    display: flex;
-    flex-direction: column;
-
-
-}
-
-
-
-.front2 {
     border: 1px solid var(--test-border);
-    display: flex;
+
+    display: none;
     flex-direction: column;
 
+
 }
+
 
